@@ -19,7 +19,11 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="edadActuarial" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="periodoFin" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="periodoIni" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+<<<<<<< HEAD
  *         &lt;element name="tasa" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+=======
+ *         &lt;element name="valor" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,14 +37,22 @@ import javax.xml.bind.annotation.XmlType;
     "edadActuarial",
     "periodoFin",
     "periodoIni",
+<<<<<<< HEAD
     "tasa"
+=======
+    "valor"
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
 })
 public class CostoCoberturaPrincipalVO {
 
     protected Integer edadActuarial;
     protected Integer periodoFin;
     protected Integer periodoIni;
+<<<<<<< HEAD
     protected Double tasa;
+=======
+    protected Double valor;
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
 
     /**
      * Gets the value of the edadActuarial property.
@@ -115,27 +127,45 @@ public class CostoCoberturaPrincipalVO {
     }
 
     /**
+<<<<<<< HEAD
      * Gets the value of the tasa property.
+=======
+     * Gets the value of the valor property.
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
      * 
      * @return
      *     possible object is
      *     {@link Double }
      *     
      */
+<<<<<<< HEAD
     public Double getTasa() {
         return tasa;
     }
 
     /**
      * Sets the value of the tasa property.
+=======
+    public Double getValor() {
+        return valor;
+    }
+
+    /**
+     * Sets the value of the valor property.
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
      * 
      * @param value
      *     allowed object is
      *     {@link Double }
      *     
      */
+<<<<<<< HEAD
     public void setTasa(Double value) {
         this.tasa = value;
+=======
+    public void setValor(Double value) {
+        this.valor = value;
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
     }
 
 }

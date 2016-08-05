@@ -78,6 +78,16 @@ public class FamiliarVO {
         return this.coberturas;
     }
 
+<<<<<<< HEAD
+=======
+    public void setCoberturas(List<Cobertura> coberturas) {
+        this.coberturas = coberturas;
+    }
+    
+    
+    
+
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
     /**
      * Gets the value of the codigo property.
      * 

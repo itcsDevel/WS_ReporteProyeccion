@@ -5,6 +5,7 @@
  */
 package cl.cnsv.wsreporteproyeccion.alfresco;
 
+<<<<<<< HEAD
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputProyeccionesVO;
 import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
@@ -16,12 +17,17 @@ import com.sun.jersey.api.client.WebResource;
 import org.apache.commons.lang.CharEncoding;
 import cl.cnsv.wsreporteproyeccion.utils.Propiedades;
 import cl.cnsv.wsreporteproyeccion.vo.ResultadoWSAlfresco;
+=======
+import javax.ws.rs.core.MediaType;
+import org.apache.log4j.Logger;
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
 
 /**
  *
  * @author ITCS09
  */
 public class ServicioAlfresco {
+<<<<<<< HEAD
      private static final Logger LOGGER = Logger.getLogger(ServicioAlfresco.class);
      private final String carpetaAlfresco = Propiedades.getFuncProperty("reportesweb.alfresco.bajar.carpeta");
      private final String urlNameAlfresco = Propiedades.getFuncProperty("reportesweb.alfresco.bajar.urlName");
@@ -125,6 +131,15 @@ public class ServicioAlfresco {
     
     
     
+=======
+     private static Logger log = Logger.getLogger(ServicioAlfresco.class);
+
+    public ServicioAlfresco() {
+    }
+    
+    
+     
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
     
     
      

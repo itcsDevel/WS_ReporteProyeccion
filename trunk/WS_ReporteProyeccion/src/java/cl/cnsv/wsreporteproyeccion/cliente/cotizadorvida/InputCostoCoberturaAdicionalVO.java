@@ -17,11 +17,19 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+<<<<<<< HEAD
  *         &lt;element name="NCapital" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="nCover" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="nModulec" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="nProduct" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="nSex" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+=======
+ *         &lt;element name="NCapital" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="nCover" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="nModulec" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="nProduct" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="nSex" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
  *         &lt;element name="sSmoking" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -43,11 +51,19 @@ import javax.xml.bind.annotation.XmlType;
 public class InputCostoCoberturaAdicionalVO {
 
     @XmlElement(name = "NCapital")
+<<<<<<< HEAD
     protected String nCapital;
     protected String nCover;
     protected String nModulec;
     protected String nProduct;
     protected String nSex;
+=======
+    protected Integer nCapital;
+    protected Integer nCover;
+    protected Integer nModulec;
+    protected Integer nProduct;
+    protected Integer nSex;
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
     protected String sSmoking;
 
     /**
@@ -55,10 +71,17 @@ public class InputCostoCoberturaAdicionalVO {
      * 
      * @return
      *     possible object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public String getNCapital() {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public Integer getNCapital() {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         return nCapital;
     }
 
@@ -67,10 +90,17 @@ public class InputCostoCoberturaAdicionalVO {
      * 
      * @param value
      *     allowed object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public void setNCapital(String value) {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public void setNCapital(Integer value) {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         this.nCapital = value;
     }
 
@@ -79,10 +109,17 @@ public class InputCostoCoberturaAdicionalVO {
      * 
      * @return
      *     possible object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public String getNCover() {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public Integer getNCover() {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         return nCover;
     }
 
@@ -91,10 +128,17 @@ public class InputCostoCoberturaAdicionalVO {
      * 
      * @param value
      *     allowed object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public void setNCover(String value) {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public void setNCover(Integer value) {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         this.nCover = value;
     }
 
@@ -103,10 +147,17 @@ public class InputCostoCoberturaAdicionalVO {
      * 
      * @return
      *     possible object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public String getNModulec() {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public Integer getNModulec() {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         return nModulec;
     }
 
@@ -115,10 +166,17 @@ public class InputCostoCoberturaAdicionalVO {
      * 
      * @param value
      *     allowed object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public void setNModulec(String value) {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public void setNModulec(Integer value) {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         this.nModulec = value;
     }
 
@@ -127,10 +185,17 @@ public class InputCostoCoberturaAdicionalVO {
      * 
      * @return
      *     possible object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public String getNProduct() {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public Integer getNProduct() {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         return nProduct;
     }
 
@@ -139,10 +204,17 @@ public class InputCostoCoberturaAdicionalVO {
      * 
      * @param value
      *     allowed object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public void setNProduct(String value) {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public void setNProduct(Integer value) {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         this.nProduct = value;
     }
 
@@ -151,10 +223,17 @@ public class InputCostoCoberturaAdicionalVO {
      * 
      * @return
      *     possible object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public String getNSex() {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public Integer getNSex() {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         return nSex;
     }
 
@@ -163,10 +242,17 @@ public class InputCostoCoberturaAdicionalVO {
      * 
      * @param value
      *     allowed object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public void setNSex(String value) {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public void setNSex(Integer value) {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         this.nSex = value;
     }
 

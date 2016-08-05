@@ -36,6 +36,10 @@ public class ReporteProyeccionServiceDummyImpl implements ReporteProyeccionServi
         
         //Nodo xml asegurable
         Element elemAsegurable = elemProyeccion.addElement("asegurable");
+<<<<<<< HEAD
+=======
+        elemAsegurable.addElement("rut").addText("14347708-8");
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         elemAsegurable.addElement("nombres").addText("ROSA MARGARITA CORTES BUGUENO");
         elemAsegurable.addElement("apellidosPaterno").addText("CORTES");
         elemAsegurable.addElement("apellidosMaterno").addText("BUGUENO");
@@ -70,6 +74,7 @@ public class ReporteProyeccionServiceDummyImpl implements ReporteProyeccionServi
         //Nodo edadAhorro
         Element elemEdadAhorro = elemProyeccion.addElement("edadahorro");
         Element elemEdad = elemEdadAhorro.addElement("edad");
+<<<<<<< HEAD
         elemEdad.addElement("finalano").addText("2016");
         elemEdad.addElement("edadactuarial").addText("21");
         elemEdad.addElement("primaacumulada").addText("0.146832");
@@ -89,6 +94,13 @@ public class ReporteProyeccionServiceDummyImpl implements ReporteProyeccionServi
         
         //Nodo cotizacion
         Element elemCoberturas = elemProyeccion.addElement("coberturas");
+=======
+        elemEdad.addElement("finalano").addText("");
+        
+        //Nodo cotizacion
+        Element elemCotizacion = elemProyeccion.addElement("cotizacion");
+        Element elemCoberturas = elemCotizacion.addElement("coberturas");
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         Element elemCobertura = elemCoberturas.addElement("cobertura");
         elemCobertura.addElement("nombreCobertura").addText("FALLECIMIENTO");
         elemCobertura.addElement("capital").addText("91,00");

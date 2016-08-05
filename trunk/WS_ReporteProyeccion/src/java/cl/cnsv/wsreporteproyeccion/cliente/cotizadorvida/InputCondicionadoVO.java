@@ -16,10 +16,17 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+<<<<<<< HEAD
  *         &lt;element name="branch" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="cover" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="modulec" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="product" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+=======
+ *         &lt;element name="branch" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="cover" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="modulec" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="product" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,20 +44,34 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class InputCondicionadoVO {
 
+<<<<<<< HEAD
     protected String branch;
     protected String cover;
     protected String modulec;
     protected String product;
+=======
+    protected Integer branch;
+    protected Integer cover;
+    protected Integer modulec;
+    protected Integer product;
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
 
     /**
      * Gets the value of the branch property.
      * 
      * @return
      *     possible object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public String getBranch() {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public Integer getBranch() {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         return branch;
     }
 
@@ -59,10 +80,17 @@ public class InputCondicionadoVO {
      * 
      * @param value
      *     allowed object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public void setBranch(String value) {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public void setBranch(Integer value) {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         this.branch = value;
     }
 
@@ -71,10 +99,17 @@ public class InputCondicionadoVO {
      * 
      * @return
      *     possible object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public String getCover() {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public Integer getCover() {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         return cover;
     }
 
@@ -83,10 +118,17 @@ public class InputCondicionadoVO {
      * 
      * @param value
      *     allowed object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public void setCover(String value) {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public void setCover(Integer value) {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         this.cover = value;
     }
 
@@ -95,10 +137,17 @@ public class InputCondicionadoVO {
      * 
      * @return
      *     possible object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public String getModulec() {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public Integer getModulec() {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         return modulec;
     }
 
@@ -107,10 +156,17 @@ public class InputCondicionadoVO {
      * 
      * @param value
      *     allowed object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public void setModulec(String value) {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public void setModulec(Integer value) {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         this.modulec = value;
     }
 
@@ -119,10 +175,17 @@ public class InputCondicionadoVO {
      * 
      * @return
      *     possible object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public String getProduct() {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public Integer getProduct() {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         return product;
     }
 
@@ -131,10 +194,17 @@ public class InputCondicionadoVO {
      * 
      * @param value
      *     allowed object is
+<<<<<<< HEAD
      *     {@link String }
      *     
      */
     public void setProduct(String value) {
+=======
+     *     {@link Integer }
+     *     
+     */
+    public void setProduct(Integer value) {
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
         this.product = value;
     }
 

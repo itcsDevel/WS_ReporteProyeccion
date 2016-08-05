@@ -6,11 +6,16 @@
 package cl.cnsv.wsreporteproyeccion.cliente;
 
 import cl.cnsv.crypto.encryption.CryptoUtil;
+<<<<<<< HEAD
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputCondicionadoVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputProyeccionesVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputCondicionadoVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputProyeccionesVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputTipoProyeccionVO;
+=======
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputProyeccionesVO;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputProyeccionesVO;
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionFlexInvGlodVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionVidAhorro100;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionVidAhorro57Bis;
@@ -104,6 +109,7 @@ public class ClienteServicioCotizadorVida {
     public OutputWSProyeccionVidAhorroFlex getWSProyeccionVidAhorroFlex (InputProyeccionesVO input){
         return port.getProyeccionesVidAhorroFlexVO(input);
     }
+<<<<<<< HEAD
     
     /**
      * @param input
@@ -118,4 +124,6 @@ public class ClienteServicioCotizadorVida {
         return port.getNombreCondicionado(input);
     }
     
+=======
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
 }

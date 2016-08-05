@@ -1,6 +1,10 @@
 
 package cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida;
 
+<<<<<<< HEAD
+=======
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -36,6 +40,10 @@ import javax.xml.bind.annotation.XmlType;
     "npersonas",
     "primaReferencialAnual"
 })
+<<<<<<< HEAD
+=======
+@XStreamAlias("cobertura")
+>>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
 public class CoberturasVO {
 
     protected double capital;
