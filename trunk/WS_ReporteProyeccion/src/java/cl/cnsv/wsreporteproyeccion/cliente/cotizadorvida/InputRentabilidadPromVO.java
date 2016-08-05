@@ -17,12 +17,6 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="dfecCotiz" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-<<<<<<< HEAD
-=======
- *         &lt;element name="nbranch" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="ncountFondo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="nproduct" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
->>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
  *         &lt;element name="slistFondo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -35,23 +29,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "inputRentabilidadPromVO", propOrder = {
     "dfecCotiz",
-<<<<<<< HEAD
-=======
-    "nbranch",
-    "ncountFondo",
-    "nproduct",
->>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
     "slistFondo"
 })
 public class InputRentabilidadPromVO {
 
     protected String dfecCotiz;
-<<<<<<< HEAD
-=======
-    protected Integer nbranch;
-    protected Integer ncountFondo;
-    protected Integer nproduct;
->>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
     protected String slistFondo;
 
     /**
@@ -79,81 +61,6 @@ public class InputRentabilidadPromVO {
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * Gets the value of the nbranch property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getNbranch() {
-        return nbranch;
-    }
-
-    /**
-     * Sets the value of the nbranch property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setNbranch(Integer value) {
-        this.nbranch = value;
-    }
-
-    /**
-     * Gets the value of the ncountFondo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getNcountFondo() {
-        return ncountFondo;
-    }
-
-    /**
-     * Sets the value of the ncountFondo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setNcountFondo(Integer value) {
-        this.ncountFondo = value;
-    }
-
-    /**
-     * Gets the value of the nproduct property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getNproduct() {
-        return nproduct;
-    }
-
-    /**
-     * Sets the value of the nproduct property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setNproduct(Integer value) {
-        this.nproduct = value;
-    }
-
-    /**
->>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
      * Gets the value of the slistFondo property.
      * 
      * @return

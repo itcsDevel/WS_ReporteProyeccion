@@ -6,11 +6,6 @@
 package cl.cnsv.wsreporteproyeccion.servlet;
 
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputProyeccionesVO;
-<<<<<<< HEAD
-=======
-import cl.cnsv.wsreporteproyeccion.service.ReporteProyeccionService;
-import cl.cnsv.wsreporteproyeccion.service.ReporteProyeccionServiceDummyImpl;
->>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
 import cl.cnsv.wsreporteproyeccion.utils.ReporteProyeccionUtil;
 import java.io.IOException;
 import java.io.PrintWriter;

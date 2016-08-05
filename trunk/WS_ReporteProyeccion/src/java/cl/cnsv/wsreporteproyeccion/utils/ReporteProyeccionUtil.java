@@ -5,11 +5,7 @@
 package cl.cnsv.wsreporteproyeccion.utils;
 
 import cl.cnsv.wsreporteproyeccion.service.ReporteProyeccionService;
-<<<<<<< HEAD
 import cl.cnsv.wsreporteproyeccion.service.ReporteProyeccionServiceImpl;
-=======
-import cl.cnsv.wsreporteproyeccion.service.ReporteProyeccionServiceDummyImpl;
->>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
 import cl.cnsv.wsreporteproyeccion.vo.InputObtenerProyeccionVO;
 import cl.cnsv.wsreporteproyeccion.vo.OutputObtenerProyeccionVO;
 
@@ -24,12 +20,8 @@ public class ReporteProyeccionUtil {
     private final ReporteProyeccionService servicio;
 
     public ReporteProyeccionUtil() {
-<<<<<<< HEAD
 //        servicio = new ReporteProyeccionServiceDummyImpl();
         servicio = new ReporteProyeccionServiceImpl();
-=======
-        servicio = new ReporteProyeccionServiceDummyImpl();
->>>>>>> a03222cbf07e6f20cb8a3cbc9445747eb5248642
     }   
     
     public OutputObtenerProyeccionVO obtenerProyeccion(InputObtenerProyeccionVO input) {
