@@ -75,7 +75,7 @@ public class ClienteServicioCotizadorVida {
      * @return 
      */
     
-    public OutputWSProyeccionFlexInvGlodVO getWSProyeccionFlexInvGlodVO (InputProyeccionesVO input){
+    public OutputWSProyeccionFlexInvGlodVO getProyeccionesFlexInvGlodVO (InputProyeccionesVO input){
         return port.getProyeccionesFlexInvGlodVO(input);
     }
     
@@ -84,7 +84,7 @@ public class ClienteServicioCotizadorVida {
      * @param input
      * @return 
      */
-    public OutputWSProyeccionVidAhorro100 getWSProyeccionVidAhorro100 (InputProyeccionesVO input){
+    public OutputWSProyeccionVidAhorro100 getProyeccionesVidAhorro100VO (InputProyeccionesVO input){
         return port.getProyeccionesVidAhorro100VO(input);                    
     }
     
@@ -93,7 +93,7 @@ public class ClienteServicioCotizadorVida {
      * @param input
      * @return 
      */      
-    public OutputWSProyeccionVidAhorro57Bis getWSProyeccionVidAhorro57Bis (InputProyeccionesVO input){
+    public OutputWSProyeccionVidAhorro57Bis getProyeccionesVidAhorro57BisVO (InputProyeccionesVO input){
         return port.getProyeccionesVidAhorro57BisVO(input);
     } 
       
@@ -101,7 +101,7 @@ public class ClienteServicioCotizadorVida {
      * @param input
      * @return 
     */
-    public OutputWSProyeccionVidAhorroFlex getWSProyeccionVidAhorroFlex (InputProyeccionesVO input){
+    public OutputWSProyeccionVidAhorroFlex getProyeccionesVidAhorroFlexVO (InputProyeccionesVO input){
         return port.getProyeccionesVidAhorroFlexVO(input);
     }
     
@@ -110,7 +110,7 @@ public class ClienteServicioCotizadorVida {
      * @return 
     */
     
-    public OutputTipoProyeccionVO getObtenerTipoProyeccionVO (InputProyeccionesVO input){     
+    public OutputTipoProyeccionVO getTipoProyeccionVO (InputProyeccionesVO input){     
         return port.getTipoProyeccionVO(input);      
     }
     

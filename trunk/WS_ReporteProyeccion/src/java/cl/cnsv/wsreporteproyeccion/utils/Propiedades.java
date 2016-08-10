@@ -24,7 +24,7 @@ public class Propiedades {
     private static ResourceBundle FUNC_BUNDLE;
     private static ResourceBundle KEY_BUNDLE;
     private static ResourceBundle CONF_BUNDLE;
-    private static final Logger LOGGER = Logger.getLogger(Propiedades.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(Propiedades.class);
    
     
     static {

@@ -10,7 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the cl.cnsv.wsreporteproyeccion.servicio.proyeccion package. 
+ * generated in the cl.cnsv.wsreporteproyeccion.cliente.proyeccion package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -34,26 +34,10 @@ public class ObjectFactory {
     private final static QName _ObtenerProyeccionVidAhorroFlexResponse_QNAME = new QName("http://ws.proyeccion.cnsv.cl/", "obtenerProyeccionVidAhorroFlexResponse");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: cl.cnsv.wsreporteproyeccion.servicio.proyeccion
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: cl.cnsv.wsreporteproyeccion.cliente.proyeccion
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link ObtenerProyeccionVidAhorro57BisResponse }
-     * 
-     */
-    public ObtenerProyeccionVidAhorro57BisResponse createObtenerProyeccionVidAhorro57BisResponse() {
-        return new ObtenerProyeccionVidAhorro57BisResponse();
-    }
-
-    /**
-     * Create an instance of {@link ObtenerProyeccionFlexInvGold }
-     * 
-     */
-    public ObtenerProyeccionFlexInvGold createObtenerProyeccionFlexInvGold() {
-        return new ObtenerProyeccionFlexInvGold();
     }
 
     /**
@@ -65,67 +49,59 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ObtenerProyeccionFlexInvGoldResponse }
+     * Create an instance of {@link ResultadoProyeccionFlexInvGold }
      * 
      */
-    public ObtenerProyeccionFlexInvGoldResponse createObtenerProyeccionFlexInvGoldResponse() {
-        return new ObtenerProyeccionFlexInvGoldResponse();
+    public ResultadoProyeccionFlexInvGold createResultadoProyeccionFlexInvGold() {
+        return new ResultadoProyeccionFlexInvGold();
     }
 
     /**
-     * Create an instance of {@link ObtenerProyeccionVidAhorro100Response }
+     * Create an instance of {@link Cobertura }
      * 
      */
-    public ObtenerProyeccionVidAhorro100Response createObtenerProyeccionVidAhorro100Response() {
-        return new ObtenerProyeccionVidAhorro100Response();
+    public Cobertura createCobertura() {
+        return new Cobertura();
     }
 
     /**
-     * Create an instance of {@link ObtenerProyeccionVidAhorro100 }
+     * Create an instance of {@link ResultadoProyeccionVidAhorro57Bis }
      * 
      */
-    public ObtenerProyeccionVidAhorro100 createObtenerProyeccionVidAhorro100() {
-        return new ObtenerProyeccionVidAhorro100();
+    public ResultadoProyeccionVidAhorro57Bis createResultadoProyeccionVidAhorro57Bis() {
+        return new ResultadoProyeccionVidAhorro57Bis();
     }
 
     /**
-     * Create an instance of {@link ObtenerProyeccionVidAhorroFlex }
+     * Create an instance of {@link ObtenerProyeccionVidAhorro57BisResponse }
      * 
      */
-    public ObtenerProyeccionVidAhorroFlex createObtenerProyeccionVidAhorroFlex() {
-        return new ObtenerProyeccionVidAhorroFlex();
+    public ObtenerProyeccionVidAhorro57BisResponse createObtenerProyeccionVidAhorro57BisResponse() {
+        return new ObtenerProyeccionVidAhorro57BisResponse();
     }
 
     /**
-     * Create an instance of {@link ObtenerProyeccionVidAhorro57Bis }
+     * Create an instance of {@link Rescate }
      * 
      */
-    public ObtenerProyeccionVidAhorro57Bis createObtenerProyeccionVidAhorro57Bis() {
-        return new ObtenerProyeccionVidAhorro57Bis();
+    public Rescate createRescate() {
+        return new Rescate();
     }
 
     /**
-     * Create an instance of {@link RespuestaFlexInvGold }
+     * Create an instance of {@link Familiar }
      * 
      */
-    public RespuestaFlexInvGold createRespuestaFlexInvGold() {
-        return new RespuestaFlexInvGold();
+    public Familiar createFamiliar() {
+        return new Familiar();
     }
 
     /**
-     * Create an instance of {@link ResultadoProyeccionVidAhorroFlex }
+     * Create an instance of {@link RespuestaVidAhorro57Bis }
      * 
      */
-    public ResultadoProyeccionVidAhorroFlex createResultadoProyeccionVidAhorroFlex() {
-        return new ResultadoProyeccionVidAhorroFlex();
-    }
-
-    /**
-     * Create an instance of {@link TransaccionVidAhorro57Bis }
-     * 
-     */
-    public TransaccionVidAhorro57Bis createTransaccionVidAhorro57Bis() {
-        return new TransaccionVidAhorro57Bis();
+    public RespuestaVidAhorro57Bis createRespuestaVidAhorro57Bis() {
+        return new RespuestaVidAhorro57Bis();
     }
 
     /**
@@ -137,11 +113,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TransaccionVidAhorroFlex }
+     * Create an instance of {@link ObtenerProyeccionVidAhorroFlex }
      * 
      */
-    public TransaccionVidAhorroFlex createTransaccionVidAhorroFlex() {
-        return new TransaccionVidAhorroFlex();
+    public ObtenerProyeccionVidAhorroFlex createObtenerProyeccionVidAhorroFlex() {
+        return new ObtenerProyeccionVidAhorroFlex();
+    }
+
+    /**
+     * Create an instance of {@link ResultadoProyeccionVidAhorroFlex }
+     * 
+     */
+    public ResultadoProyeccionVidAhorroFlex createResultadoProyeccionVidAhorroFlex() {
+        return new ResultadoProyeccionVidAhorroFlex();
+    }
+
+    /**
+     * Create an instance of {@link Asegurable }
+     * 
+     */
+    public Asegurable createAsegurable() {
+        return new Asegurable();
     }
 
     /**
@@ -153,27 +145,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DatosSimulacionVidAhorro57Bis }
+     * Create an instance of {@link TransaccionFlexInvGold }
      * 
      */
-    public DatosSimulacionVidAhorro57Bis createDatosSimulacionVidAhorro57Bis() {
-        return new DatosSimulacionVidAhorro57Bis();
-    }
-
-    /**
-     * Create an instance of {@link Recargo }
-     * 
-     */
-    public Recargo createRecargo() {
-        return new Recargo();
-    }
-
-    /**
-     * Create an instance of {@link DatosSimulacionVidAhorroFlex }
-     * 
-     */
-    public DatosSimulacionVidAhorroFlex createDatosSimulacionVidAhorroFlex() {
-        return new DatosSimulacionVidAhorroFlex();
+    public TransaccionFlexInvGold createTransaccionFlexInvGold() {
+        return new TransaccionFlexInvGold();
     }
 
     /**
@@ -193,67 +169,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Rescate }
-     * 
-     */
-    public Rescate createRescate() {
-        return new Rescate();
-    }
-
-    /**
-     * Create an instance of {@link DatosSimulacionFlexInvGold }
-     * 
-     */
-    public DatosSimulacionFlexInvGold createDatosSimulacionFlexInvGold() {
-        return new DatosSimulacionFlexInvGold();
-    }
-
-    /**
-     * Create an instance of {@link RespuestaVidAhorro100 }
-     * 
-     */
-    public RespuestaVidAhorro100 createRespuestaVidAhorro100() {
-        return new RespuestaVidAhorro100();
-    }
-
-    /**
-     * Create an instance of {@link Familiar }
-     * 
-     */
-    public Familiar createFamiliar() {
-        return new Familiar();
-    }
-
-    /**
-     * Create an instance of {@link TransaccionFlexInvGold }
-     * 
-     */
-    public TransaccionFlexInvGold createTransaccionFlexInvGold() {
-        return new TransaccionFlexInvGold();
-    }
-
-    /**
      * Create an instance of {@link DatosSimulacionVidAhorro100 }
      * 
      */
     public DatosSimulacionVidAhorro100 createDatosSimulacionVidAhorro100() {
         return new DatosSimulacionVidAhorro100();
-    }
-
-    /**
-     * Create an instance of {@link ResultadoProyeccionVidAhorro57Bis }
-     * 
-     */
-    public ResultadoProyeccionVidAhorro57Bis createResultadoProyeccionVidAhorro57Bis() {
-        return new ResultadoProyeccionVidAhorro57Bis();
-    }
-
-    /**
-     * Create an instance of {@link RespuestaVidAhorro57Bis }
-     * 
-     */
-    public RespuestaVidAhorro57Bis createRespuestaVidAhorro57Bis() {
-        return new RespuestaVidAhorro57Bis();
     }
 
     /**
@@ -265,27 +185,107 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Cobertura }
+     * Create an instance of {@link ObtenerProyeccionVidAhorro57Bis }
      * 
      */
-    public Cobertura createCobertura() {
-        return new Cobertura();
+    public ObtenerProyeccionVidAhorro57Bis createObtenerProyeccionVidAhorro57Bis() {
+        return new ObtenerProyeccionVidAhorro57Bis();
     }
 
     /**
-     * Create an instance of {@link Asegurable }
+     * Create an instance of {@link ObtenerProyeccionVidAhorro100 }
      * 
      */
-    public Asegurable createAsegurable() {
-        return new Asegurable();
+    public ObtenerProyeccionVidAhorro100 createObtenerProyeccionVidAhorro100() {
+        return new ObtenerProyeccionVidAhorro100();
     }
 
     /**
-     * Create an instance of {@link ResultadoProyeccionFlexInvGold }
+     * Create an instance of {@link DatosSimulacionVidAhorro57Bis }
      * 
      */
-    public ResultadoProyeccionFlexInvGold createResultadoProyeccionFlexInvGold() {
-        return new ResultadoProyeccionFlexInvGold();
+    public DatosSimulacionVidAhorro57Bis createDatosSimulacionVidAhorro57Bis() {
+        return new DatosSimulacionVidAhorro57Bis();
+    }
+
+    /**
+     * Create an instance of {@link RespuestaFlexInvGold }
+     * 
+     */
+    public RespuestaFlexInvGold createRespuestaFlexInvGold() {
+        return new RespuestaFlexInvGold();
+    }
+
+    /**
+     * Create an instance of {@link TransaccionVidAhorroFlex }
+     * 
+     */
+    public TransaccionVidAhorroFlex createTransaccionVidAhorroFlex() {
+        return new TransaccionVidAhorroFlex();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerProyeccionVidAhorro100Response }
+     * 
+     */
+    public ObtenerProyeccionVidAhorro100Response createObtenerProyeccionVidAhorro100Response() {
+        return new ObtenerProyeccionVidAhorro100Response();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerProyeccionFlexInvGoldResponse }
+     * 
+     */
+    public ObtenerProyeccionFlexInvGoldResponse createObtenerProyeccionFlexInvGoldResponse() {
+        return new ObtenerProyeccionFlexInvGoldResponse();
+    }
+
+    /**
+     * Create an instance of {@link RespuestaVidAhorro100 }
+     * 
+     */
+    public RespuestaVidAhorro100 createRespuestaVidAhorro100() {
+        return new RespuestaVidAhorro100();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerProyeccionFlexInvGold }
+     * 
+     */
+    public ObtenerProyeccionFlexInvGold createObtenerProyeccionFlexInvGold() {
+        return new ObtenerProyeccionFlexInvGold();
+    }
+
+    /**
+     * Create an instance of {@link DatosSimulacionVidAhorroFlex }
+     * 
+     */
+    public DatosSimulacionVidAhorroFlex createDatosSimulacionVidAhorroFlex() {
+        return new DatosSimulacionVidAhorroFlex();
+    }
+
+    /**
+     * Create an instance of {@link DatosSimulacionFlexInvGold }
+     * 
+     */
+    public DatosSimulacionFlexInvGold createDatosSimulacionFlexInvGold() {
+        return new DatosSimulacionFlexInvGold();
+    }
+
+    /**
+     * Create an instance of {@link TransaccionVidAhorro57Bis }
+     * 
+     */
+    public TransaccionVidAhorro57Bis createTransaccionVidAhorro57Bis() {
+        return new TransaccionVidAhorro57Bis();
+    }
+
+    /**
+     * Create an instance of {@link Recargo }
+     * 
+     */
+    public Recargo createRecargo() {
+        return new Recargo();
     }
 
     /**

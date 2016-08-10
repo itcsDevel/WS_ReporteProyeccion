@@ -3,7 +3,6 @@ package cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -17,10 +16,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="forma_pago" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="formaPago" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="plan" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="portafolio_seleccionado" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="prima_referencial_anual" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *         &lt;element name="portafolioSeleccionado" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="primaReferencialAnual" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *         &lt;element name="valorUf" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -34,17 +34,16 @@ import javax.xml.bind.annotation.XmlType;
     "formaPago",
     "plan",
     "portafolioSeleccionado",
-    "primaReferencialAnual"
+    "primaReferencialAnual",
+    "valorUf"
 })
 public class EleccionesVO {
 
-    @XmlElement(name = "forma_pago")
     protected String formaPago;
     protected String plan;
-    @XmlElement(name = "portafolio_seleccionado")
     protected String portafolioSeleccionado;
-    @XmlElement(name = "prima_referencial_anual")
     protected double primaReferencialAnual;
+    protected double valorUf;
 
     /**
      * Gets the value of the formaPago property.
@@ -132,6 +131,22 @@ public class EleccionesVO {
      */
     public void setPrimaReferencialAnual(double value) {
         this.primaReferencialAnual = value;
+    }
+
+    /**
+     * Gets the value of the valorUf property.
+     * 
+     */
+    public double getValorUf() {
+        return valorUf;
+    }
+
+    /**
+     * Sets the value of the valorUf property.
+     * 
+     */
+    public void setValorUf(double value) {
+        this.valorUf = value;
     }
 
 }

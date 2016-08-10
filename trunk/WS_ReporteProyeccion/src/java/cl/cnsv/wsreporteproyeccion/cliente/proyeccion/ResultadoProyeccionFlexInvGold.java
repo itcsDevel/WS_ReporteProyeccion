@@ -56,10 +56,9 @@ public class ResultadoProyeccionFlexInvGold {
      *     {@link Integer }
      *     
      */
-
-public Integer getEdadActuarial() {
+    public Integer getEdadActuarial() {
         return edadActuarial;
-}
+    }
 
     /**
      * Sets the value of the edadActuarial property.

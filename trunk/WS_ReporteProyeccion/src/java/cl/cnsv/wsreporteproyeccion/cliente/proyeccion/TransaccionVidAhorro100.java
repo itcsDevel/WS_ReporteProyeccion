@@ -132,12 +132,6 @@ public class TransaccionVidAhorro100 {
         return this.familiares;
     }
 
-    public void setFamiliares(List<Familiar> familiares) {
-        this.familiares = familiares;
-    }
-
-    
-    
     /**
      * Gets the value of the inyecciones property.
      * 

@@ -24,9 +24,7 @@ public class AppStarter implements ServletContextListener{
      */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        java.util.logging.Logger log = java.util.logging.Logger.getLogger(AppStarter.class.getName());
         String log4jFile = Propiedades.getConfProperty("LOG4JPROPERTIES");
-        log.info("log4jFile: ".concat(log4jFile));
         DOMConfigurator.configureAndWatch(log4jFile, LOG_WATCH_PERIOD);
         LOGGER.info("AppStarter:contextInitialized:: AppStarter contextInitialized");
     }

@@ -1,7 +1,6 @@
 
 package cl.cnsv.wsreporteproyeccion.cliente.proyeccion;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -44,8 +43,6 @@ import javax.xml.bind.annotation.XmlType;
     "valorPoliza",
     "valorRescate"
 })
-
-@XStreamAlias("edadahorro")
 public class ResultadoProyeccionVidAhorro100 {
 
     protected Integer edadActuarial;
