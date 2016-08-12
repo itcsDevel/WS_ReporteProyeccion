@@ -1,0 +1,150 @@
+<cotizacion>
+	<asegurable>
+		<apellidoPaterno>Adasme</apellidoPaterno>
+		<apellidoMaterno>Fredes</apellidoMaterno>
+		<nombres>Gerts Rodrigo</nombres>
+		<rut>13639480-0</rut>
+		<profesion>Ing. Civil Informático</profesion>
+		<actividadEconomica>Computólogo</actividadEconomica>
+		<nacionalidad>Chilena</nacionalidad>
+		<estadoCivil>Casado</estadoCivil>
+		<tipoFumador>No</tipoFumador>
+		<edadActuarial>36</edadActuarial>
+		<fechaNacimiento>17/11/1979</fechaNacimiento>
+		<sexo>Masculino</sexo>
+		<ingresoLiquido>Jubilazo</ingresoLiquido>
+		<direccion>Santiago 2233</direccion>
+		<comuna>Santiago</comuna>
+		<celular>88995566</celular>
+		<email>notiene@notiene.no</email>
+		<ciudad>Santiago</ciudad>
+		<fijo>22995577</fijo>		
+	</asegurable>
+	<contratante>
+		<apellidoPaterno>Adasme</apellidoPaterno>
+		<apellidoMaterno>Fredes</apellidoMaterno>
+		<nombres>Gerts Rodrigo</nombres>
+		<rut>13639480-0</rut>
+		<profesion>Ing. Civil Informático</profesion>
+		<actividadEconomica>Computólogo</actividadEconomica>
+		<nacionalidad>Chilena</nacionalidad>
+		<estadoCivil>Casado</estadoCivil>
+		<tipoFumador>No</tipoFumador>
+		<edadActuarial>36</edadActuarial>
+		<fechaNacimiento>17/11/1979</fechaNacimiento>
+		<sexo>Masculino</sexo>
+		<ingresoLiquido>Jubilazo</ingresoLiquido>
+		<direccion>Santiago 2233</direccion>
+		<comuna>Santiago</comuna>
+		<celular>88995566</celular>
+		<email>notiene@notiene.no</email>
+		<ciudad>Santiago</ciudad>
+		<fijo>22995577</fijo>
+	</contratante>
+	<beneficiarios>
+		<beneficiario>
+			<apellidoPaterno>Adasme</apellidoPaterno>
+			<apellidoMaterno>Aguilar</apellidoMaterno>
+			<nombres>Fernando Alonso</nombres>
+			<direccionParticular>Santiago 2233</direccionParticular>
+			<comuna>Santiago</comuna>
+			<celular>88995566</celular>
+			<email>notiene@notiene.no</email>
+			<ciudad>Santiago</ciudad>
+			<fijo>22995566</fijo>
+		</beneficiario>
+		<beneficiario>
+			<apellidoPaterno>Adasme</apellidoPaterno>
+			<apellidoMaterno>Aguilar</apellidoMaterno>
+			<nombres>Yazmín Valentina</nombres>
+			<direccionParticular>Santiago 2233</direccionParticular>
+			<comuna>Santiago</comuna>
+			<celular>88995566</celular>
+			<email>notiene@notiene.no</email>
+			<ciudad>Santiago</ciudad>
+			<fijo>22995566</fijo>
+		</beneficiario>
+	</beneficiarios>	
+	<viaCobro>
+		<institucion>BBVA</institucion>
+		<numeroCuenta>112233</numeroCuenta>
+		<diaCobro>1</diaCobro>
+		<numeroMandato>22334455</numeroMandato>
+	</viaCobro>
+	<usoInterno>
+		<moneda>UF</moneda>
+		<codigoAgencia>2106</codigoAgencia>
+		<agenteVenta>BROKERS</agenteVenta>
+		<origenVenta>ORIGEN</origenVenta>
+		<certificadoCobertura>CERTIFICADO</certificadoCobertura>
+		<declaracionBeneficiario>DECLARACION_BENEFI</declaracionBeneficiario>
+		<numeroDps>112233</numeroDps>
+		<numeroDpsConyuge>11223344</numeroDpsConyuge>
+		<plan>VIDA AHORRO 100</plan>
+		<gastosSuscripcion>Gastos</gastosSuscripcion>
+		<formaPago>PAT</formaPago>
+		<fechaInicio>01/01/2016</fechaInicio>
+		<fechaTermino>12/12/2016</fechaTermino>
+		<periodoCobertura>01/01/2016</periodoCobertura>
+		<periodoPago>12/12/2016</periodoPago>
+		<opcion>Opcion</opcion>
+		<fondoInversion>Fondo</fondoInversion>
+		<rmg>Rmg</rmg>
+	</usoInterno>
+	<coberturas>
+		<cobertura>
+			<nombre>FALLECIMIENTO</nombre>
+			<capital>1000.0</capital>
+			<costoCobertura>1000.0</costoCobertura>
+			<nombreCondicionado>SEGURO DE VIDA CON PRIMAS VARIABLES VINCULADO A ACTIVOS DE INVERSION</nombreCondicionado>
+			<codigoSvs>POL 2 2015 XXXX</codigoSvs>
+		</cobertura>
+		<cobertura>
+			<nombre>MUERTE ACCIDENTAL</nombre>
+			<capital>1000.0</capital>
+			<costoCobertura>1000.0</costoCobertura>
+			<nombreCondicionado>CLAUSULA BENEFICIO POR MUERTE ACCIDENTAL</nombreCondicionado>
+			<codigoSvs>CAD 2 2015 XXXX</codigoSvs>
+		</cobertura>
+	</coberturas>
+	<rentabilidadInversion>
+		<codigoSvs>POL220150832</codigoSvs>
+	</rentabilidadInversion>
+	<proyeccion>
+		<fecha>11/08/2016</fecha>
+		<valorUf>25879.24</valorUf>
+		<supuestoRentabilidad>5.0</supuestoRentabilidad>
+		<coberturas>
+			<cobertura>
+				<nombre>FALLECIMIENTO</nombre>
+				<capital>1000.0</capital>
+				<numeroPersonas>1</numeroPersonas>
+				<costoCoberturaMensual>3.0</costoCoberturaMensual>
+			</cobertura>
+			<cobertura>
+				<nombre>MUERTE ACCIDENTAL</nombre>
+				<capital>1000.0</capital>
+				<numeroPersonas>1</numeroPersonas>
+				<costoCoberturaMensual>4.0</costoCoberturaMensual>
+			</cobertura>
+		</coberturas>
+		<edadahorro>
+			<edad>
+				<finalAnio>1</finalAnio>
+				<edadActuarial>36</edadActuarial>
+				<primaAcumulada>500.0</primaAcumulada>
+				<otrosAbonos>500.0</otrosAbonos>
+				<valorPoliza>1000.0</valorPoliza>
+				<indemnizacionFallecimiento>1000.0</indemnizacionFallecimiento>
+			</edad>
+			<edad>
+				<finalAnio>2</finalAnio>
+				<edadActuarial>36</edadActuarial>
+				<primaAcumulada>500.0</primaAcumulada>
+				<otrosAbonos>500.0</otrosAbonos>
+				<valorPoliza>1000.0</valorPoliza>
+				<indemnizacionFallecimiento>1000.0</indemnizacionFallecimiento>
+			</edad>
+		</edadahorro>
+	</proyeccion>
+</cotizacion>
