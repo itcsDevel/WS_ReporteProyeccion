@@ -10,13 +10,12 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>WS_ReporteProyeccion</servlet-name>
-        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-        <init-param>
-            <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>cl.cnsv.wsreporteproyeccion.ws</param-value>
-        </init-param>
-    </servlet>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <url-pattern>/restcns/*</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>ReporteProyeccionServlet</servlet-name>
         <servlet-class>cl.cnsv.wsreporteproyeccion.servlet.ReporteProyeccionServlet</servlet-class>
@@ -24,10 +23,37 @@
     <servlet-mapping>
         <servlet-name>ReporteProyeccionServlet</servlet-name>
         <url-pattern>/ReporteProyeccionServlet</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <security-constraint>
+        <display-name>Everything</display-name>
+        <web-resource-collection>
+            <web-resource-name>Everything</web-resource-name>
+            <description/>
+            <url-pattern>/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>PUT</http-method>
+            <http-method>HEAD</http-method>
+            <http-method>POST</http-method>
+            <http-method>OPTIONS</http-method>
+            <http-method>TRACE</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>USERS</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>reporteProyecc</realm-name>
+    </login-config>
+    <security-role>
+        <description/>
+        <role-name>USERS</role-name>
+    </security-role>     
 </web-app>

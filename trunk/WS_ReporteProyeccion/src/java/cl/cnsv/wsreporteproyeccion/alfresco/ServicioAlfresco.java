@@ -10,12 +10,15 @@ import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
 import org.apache.commons.lang.CharEncoding;
 import cl.cnsv.wsreporteproyeccion.utils.Propiedades;
 import cl.cnsv.wsreporteproyeccion.vo.ResultadoWSAlfresco;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -103,31 +106,21 @@ public class ServicioAlfresco {
      * @throws Exception
      */
     protected String post(String endpoint, String mediaType, Object data) throws Exception {
-        Client client = Client.create();
-        client.setConnectTimeout(3000000);
-        WebResource webResource = client.resource(endpoint);
+        
+        Client client = ClientBuilder.newClient();
+
+        WebTarget webTarget = client.target(endpoint);        
+        Invocation.Builder invocationBuilder =  webTarget.request(mediaType);
         String input = data != null ? data.toString() : null;
-                
         StringBuilder contentType = new StringBuilder(mediaType);
         contentType.append(";charset=" + CharEncoding.UTF_8);
-        ClientResponse response = webResource.accept(mediaType).header("Content-Type", contentType.toString()).post(ClientResponse.class, input);
-      
-        if (response.getStatus() != ClientResponse.Status.OK.getStatusCode()) {
+        invocationBuilder.accept(mediaType);
+        invocationBuilder.header("Content-Type", contentType.toString());
+        Response response = invocationBuilder.post(Entity.entity(input, mediaType));
+        if (response.getStatus() != Response.Status.OK.getStatusCode()) {
             throw new Exception(response.toString());
         }
-
-        String result = response.getEntity(String.class);
-        if (result == null || result.isEmpty()) {
-            throw new Exception("No existe cuerpo de respuesta");
-        }
+        String result = response.readEntity(String.class);
         return result;
     }
-    
-    
-    
-    
-    
-     
-     
-     
 }

@@ -5,13 +5,13 @@
  */
 package cl.cnsv.wsreporteproyeccion.ws;
 
-import cl.cnsv.wsreporteproyeccion.service.ReporteProyeccionService;
 import cl.cnsv.wsreporteproyeccion.utils.ReporteProyeccionUtil;
 import cl.cnsv.wsreporteproyeccion.vo.InputObtenerProyeccionVO;
 import cl.cnsv.wsreporteproyeccion.vo.OutputObtenerProyeccionVO;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -34,7 +34,9 @@ public class WS_ReporteProyeccionRest {
      * @return 
      */
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/obtenerProyeccion")
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public OutputObtenerProyeccionVO obtenerProyeccion(InputObtenerProyeccionVO input) {
         ReporteProyeccionUtil reporteProyeccionUtil = new ReporteProyeccionUtil();
         return reporteProyeccionUtil.obtenerProyeccion(input);
