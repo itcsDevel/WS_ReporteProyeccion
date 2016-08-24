@@ -35,6 +35,8 @@ public class ReporteProyeccionValidatorImpl implements ReporteProyeccionValidato
             output.setMensaje(Propiedades.getFuncProperty("validaciones.empty.mensaje"));
             return output;
         }
+        output.setCodigo(Integer.valueOf(Propiedades.getFuncProperty("codigo.ok")));
+        output.setMensaje(Propiedades.getFuncProperty("mensaje.ok"));
         return output;
     }
 }
