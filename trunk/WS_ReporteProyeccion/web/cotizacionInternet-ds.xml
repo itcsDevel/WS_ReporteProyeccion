@@ -92,28 +92,30 @@
 		<rmg>Rmg</rmg>
 	</usoInterno>
 	<coberturas>
-		<cobertura>
+		<cobertura>			
 			<nombre>FALLECIMIENTO</nombre>
 			<capital>1000.0</capital>
 			<costoCobertura>1000.0</costoCobertura>
 			<nombreCondicionado>SEGURO DE VIDA CON PRIMAS VARIABLES VINCULADO A ACTIVOS DE INVERSION</nombreCondicionado>
-			<codigoSvs>POL 2 2015 XXXX</codigoSvs>
+			<codigoSvs>POL22015XXX</codigoSvs>
 		</cobertura>
 		<cobertura>
 			<nombre>MUERTE ACCIDENTAL</nombre>
 			<capital>1000.0</capital>
 			<costoCobertura>1000.0</costoCobertura>
 			<nombreCondicionado>CLAUSULA BENEFICIO POR MUERTE ACCIDENTAL</nombreCondicionado>
-			<codigoSvs>CAD 2 2015 XXXX</codigoSvs>
+			<codigoSvs>CAD22015XXX</codigoSvs>
 		</cobertura>
 	</coberturas>
 	<rentabilidadInversion>
 		<codigoSvs>POL220150832</codigoSvs>
+		<codigoSvsCoberturaFallecimiento>POL22015XXX</codigoSvsCoberturaFallecimiento>
+		<codigoSvsCoberturaMuerteAccidental>CAD22015XXX</codigoSvsCoberturaMuerteAccidental>
 	</rentabilidadInversion>
 	<proyeccion>
 		<fecha>11/08/2016</fecha>
 		<valorUf>25879.24</valorUf>
-		<supuestoRentabilidad>5.0</supuestoRentabilidad>
+		<supuestoRentabilidad>5.0%</supuestoRentabilidad>		
 		<coberturas>
 			<cobertura>
 				<nombre>FALLECIMIENTO</nombre>

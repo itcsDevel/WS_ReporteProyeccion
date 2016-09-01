@@ -5,6 +5,7 @@
 package cl.cnsv.wsreporteproyeccion.validator;
 
 import cl.cnsv.wsreporteproyeccion.utils.Propiedades;
+import cl.cnsv.wsreporteproyeccion.vo.InputObtenerCotizacionInternetVO;
 import cl.cnsv.wsreporteproyeccion.vo.InputObtenerProyeccionVO;
 import cl.cnsv.wsreporteproyeccion.vo.OutputVO;
 
@@ -31,6 +32,30 @@ public class ReporteProyeccionValidatorImpl implements ReporteProyeccionValidato
             return output;
         }
         else if ("".equals(numeroPoliza)){
+            output.setCodigo(Integer.valueOf(Propiedades.getFuncProperty("validaciones.empty.codigo")));
+            output.setMensaje(Propiedades.getFuncProperty("validaciones.empty.mensaje"));
+            return output;
+        }
+        output.setCodigo(Integer.valueOf(Propiedades.getFuncProperty("codigo.ok")));
+        output.setMensaje(Propiedades.getFuncProperty("mensaje.ok"));
+        return output;
+    }
+
+    @Override
+    public OutputVO validarObtenerCotizacionInternet(InputObtenerCotizacionInternetVO input) {
+        OutputVO output = new OutputVO();
+        if (input == null) {
+            output.setCodigo(Integer.valueOf(Propiedades.getFuncProperty("validaciones.null.codigo")));
+            output.setMensaje(Propiedades.getFuncProperty("validaciones.null.mensaje"));
+            return output;
+        }
+        String numeroCotizacion = input.getNumeroCotizacion();
+        if (numeroCotizacion == null) {
+            output.setCodigo(Integer.valueOf(Propiedades.getFuncProperty("validaciones.null.codigo")));
+            output.setMensaje(Propiedades.getFuncProperty("validaciones.null.mensaje"));
+            return output;
+        }
+        else if ("".equals(numeroCotizacion)){
             output.setCodigo(Integer.valueOf(Propiedades.getFuncProperty("validaciones.empty.codigo")));
             output.setMensaje(Propiedades.getFuncProperty("validaciones.empty.mensaje"));
             return output;

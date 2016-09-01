@@ -7,8 +7,10 @@ package cl.cnsv.wsreporteproyeccion.cliente;
 
 import cl.cnsv.crypto.encryption.CryptoUtil;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputCondicionadoVO;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputCotizacionInternet;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputProyeccionesVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputCondicionadoVO;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputCotizacionInternet;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputProyeccionesVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputTipoProyeccionVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionFlexInvGlodVO;
@@ -38,7 +40,7 @@ public class ClienteServicioCotizadorVida {
         if (port == null) {
             String wsdl = Propiedades.getFuncProperty("ws.cotizadorvida.wsdl");
             URL url = new URL(wsdl);
-            QName qname = new QName("http://ws.wscotizadorvida.cnsv.cl/", "WS_CotizadorVida");
+            QName qname = new QName("http://cnsv.cl/", "WS_CotizadorVida");
             LOGGER.info("WSDL servicio WSCotizadorVida " + wsdl);
             final String username = Propiedades.getKeyProperty("ws.cotizadorvida.username");
             final String encryptedPassword = Propiedades.getKeyProperty("ws.cotizadorvida.password");
@@ -53,9 +55,9 @@ public class ClienteServicioCotizadorVida {
                 protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(username, password.toCharArray());
                 }
-            });            
+            });
             Service service = Service.create(url, qname);
-            port = service.getPort(WSCotizadorVida.class);            
+            port = service.getPort(WSCotizadorVida.class);   
         }
     }
     
@@ -64,7 +66,6 @@ public class ClienteServicioCotizadorVida {
      * @param input
      * @return 
      */
-    
     public OutputProyeccionesVO getProyeccionesVO(InputProyeccionesVO input) {        
         return port.getProyeccionesVO(input);
     } 
@@ -74,7 +75,6 @@ public class ClienteServicioCotizadorVida {
      * @param input
      * @return 
      */
-    
     public OutputWSProyeccionFlexInvGlodVO getProyeccionesFlexInvGlodVO (InputProyeccionesVO input){
         return port.getProyeccionesFlexInvGlodVO(input);
     }
@@ -98,6 +98,8 @@ public class ClienteServicioCotizadorVida {
     } 
       
     /**
+     * Permite obtener los datos de proyeccion del producto
+     * Vida Ahorro Flex.
      * @param input
      * @return 
     */
@@ -106,16 +108,30 @@ public class ClienteServicioCotizadorVida {
     }
     
     /**
+     * Permite obtener el tipo de proyeccion.
      * @param input
      * @return 
     */
-    
     public OutputTipoProyeccionVO getTipoProyeccionVO (InputProyeccionesVO input){     
         return port.getTipoProyeccionVO(input);      
     }
     
+    /**
+     * Permite obtener el nombre del condicionado.
+     * @param input
+     * @return 
+     */
     public OutputCondicionadoVO getNombreCondicionado(InputCondicionadoVO input) {
         return port.getNombreCondicionado(input);
+    }
+    
+    /**
+     * Permite obtener la informacion para el reporte de cotizacion internet.
+     * @param input
+     * @return 
+     */
+    public OutputCotizacionInternet getCotizacionInternet(InputCotizacionInternet input) {
+        return port.getCotizacionInternet(input);
     }
     
 }

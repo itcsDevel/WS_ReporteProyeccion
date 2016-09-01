@@ -20,14 +20,14 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="codigo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="mensaje" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="antecedentes" type="{http://ws.wscotizadorvida.cnsv.cl/}antecedentesVO" minOccurs="0"/>
- *         &lt;element name="elecciones" type="{http://ws.wscotizadorvida.cnsv.cl/}eleccionesVO" minOccurs="0"/>
+ *         &lt;element name="antecedentes" type="{http://cnsv.cl/}antecedentesVO" minOccurs="0"/>
+ *         &lt;element name="elecciones" type="{http://cnsv.cl/}eleccionesVO" minOccurs="0"/>
  *         &lt;element name="coberturas" minOccurs="0">
  *           &lt;complexType>
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
- *                   &lt;element name="cobertura" type="{http://ws.wscotizadorvida.cnsv.cl/}coberturaVO" maxOccurs="unbounded" minOccurs="0"/>
+ *                   &lt;element name="cobertura" type="{http://cnsv.cl/}coberturaVO" maxOccurs="unbounded" minOccurs="0"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
@@ -188,7 +188,7 @@ public class OutputProyeccionesVO {
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
-     *         &lt;element name="cobertura" type="{http://ws.wscotizadorvida.cnsv.cl/}coberturaVO" maxOccurs="unbounded" minOccurs="0"/>
+     *         &lt;element name="cobertura" type="{http://cnsv.cl/}coberturaVO" maxOccurs="unbounded" minOccurs="0"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
      *   &lt;/complexContent>

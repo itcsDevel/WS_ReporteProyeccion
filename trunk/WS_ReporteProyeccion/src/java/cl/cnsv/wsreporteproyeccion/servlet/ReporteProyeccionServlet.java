@@ -5,7 +5,6 @@
  */
 package cl.cnsv.wsreporteproyeccion.servlet;
 
-import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputProyeccionesVO;
 import cl.cnsv.wsreporteproyeccion.utils.ReporteProyeccionUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -48,14 +47,11 @@ public class ReporteProyeccionServlet extends HttpServlet {
         response.setContentType("text/xml;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String nroPropuesta = request.getParameter("NRO_PROPUESTA");            
-        LOGGER.info("Número de Propuesta -> " + nroPropuesta);
-        InputProyeccionesVO input = new InputProyeccionesVO();
-        input.setNumeroPoliza(nroPropuesta);
+        LOGGER.info("Número de Propuesta -> " + nroPropuesta);        
         //</editor-fold>       
         
         //<editor-fold defaultstate="collapsed" desc="Construir XML de proyeccion">
-        String xml = "";
-        xml = reporteProyeccionUtil.obtenerXmlProyeccion(nroPropuesta);
+        String xml = reporteProyeccionUtil.obtenerXmlProyeccion(nroPropuesta);
         LOGGER.info("XML: \n" + xml);
         //</editor-fold>
 

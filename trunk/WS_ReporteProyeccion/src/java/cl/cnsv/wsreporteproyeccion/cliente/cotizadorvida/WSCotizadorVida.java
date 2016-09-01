@@ -16,7 +16,7 @@ import javax.xml.ws.ResponseWrapper;
  * Generated source version: 2.1
  * 
  */
-@WebService(name = "WSCotizadorVida", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/")
+@WebService(name = "WSCotizadorVida", targetNamespace = "http://cnsv.cl/")
 @XmlSeeAlso({
     ObjectFactory.class
 })
@@ -31,8 +31,8 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "test", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.Test")
-    @ResponseWrapper(localName = "testResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.TestResponse")
+    @RequestWrapper(localName = "test", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.Test")
+    @ResponseWrapper(localName = "testResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.TestResponse")
     public String test(
         @WebParam(name = "entradaPrueba", targetNamespace = "")
         String entradaPrueba);
@@ -45,8 +45,8 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getNombreCondicionado", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetNombreCondicionado")
-    @ResponseWrapper(localName = "getNombreCondicionadoResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetNombreCondicionadoResponse")
+    @RequestWrapper(localName = "getNombreCondicionado", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetNombreCondicionado")
+    @ResponseWrapper(localName = "getNombreCondicionadoResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetNombreCondicionadoResponse")
     public OutputCondicionadoVO getNombreCondicionado(
         @WebParam(name = "entrada", targetNamespace = "")
         InputCondicionadoVO entrada);
@@ -59,25 +59,11 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getRentabilidadPromedioPorFondo", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetRentabilidadPromedioPorFondo")
-    @ResponseWrapper(localName = "getRentabilidadPromedioPorFondoResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetRentabilidadPromedioPorFondoResponse")
+    @RequestWrapper(localName = "getRentabilidadPromedioPorFondo", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetRentabilidadPromedioPorFondo")
+    @ResponseWrapper(localName = "getRentabilidadPromedioPorFondoResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetRentabilidadPromedioPorFondoResponse")
     public OutputPromRentFondoVO getRentabilidadPromedioPorFondo(
         @WebParam(name = "entrada", targetNamespace = "")
         InputPromRentFondoVO entrada);
-
-    /**
-     * 
-     * @param entrada
-     * @return
-     *     returns cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputRentabilidadPromVO
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getRentabilidadPromedio", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetRentabilidadPromedio")
-    @ResponseWrapper(localName = "getRentabilidadPromedioResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetRentabilidadPromedioResponse")
-    public OutputRentabilidadPromVO getRentabilidadPromedio(
-        @WebParam(name = "entrada", targetNamespace = "")
-        InputRentabilidadPromVO entrada);
 
     /**
      * 
@@ -87,8 +73,8 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCostoCoberturaAdicional", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetCostoCoberturaAdicional")
-    @ResponseWrapper(localName = "getCostoCoberturaAdicionalResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetCostoCoberturaAdicionalResponse")
+    @RequestWrapper(localName = "getCostoCoberturaAdicional", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetCostoCoberturaAdicional")
+    @ResponseWrapper(localName = "getCostoCoberturaAdicionalResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetCostoCoberturaAdicionalResponse")
     public OutputCostoCoberturaAdicionalVO getCostoCoberturaAdicional(
         @WebParam(name = "entrada", targetNamespace = "")
         InputCostoCoberturaAdicionalVO entrada);
@@ -101,8 +87,8 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCostoCoberturaPrincipal", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetCostoCoberturaPrincipal")
-    @ResponseWrapper(localName = "getCostoCoberturaPrincipalResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetCostoCoberturaPrincipalResponse")
+    @RequestWrapper(localName = "getCostoCoberturaPrincipal", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetCostoCoberturaPrincipal")
+    @ResponseWrapper(localName = "getCostoCoberturaPrincipalResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetCostoCoberturaPrincipalResponse")
     public OutputCostoCoberturaPrincipalVO getCostoCoberturaPrincipal(
         @WebParam(name = "entrada", targetNamespace = "")
         InputCostoCoberturaPrincipalVO entrada);
@@ -115,8 +101,8 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getMontosInyeccion", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetMontosInyeccion")
-    @ResponseWrapper(localName = "getMontosInyeccionResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetMontosInyeccionResponse")
+    @RequestWrapper(localName = "getMontosInyeccion", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetMontosInyeccion")
+    @ResponseWrapper(localName = "getMontosInyeccionResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetMontosInyeccionResponse")
     public OutputMontosInyeccionVO getMontosInyeccion(
         @WebParam(name = "entrada", targetNamespace = "")
         InputMontosInyeccionVO entrada);
@@ -129,8 +115,8 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getLimitesCapital", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetLimitesCapital")
-    @ResponseWrapper(localName = "getLimitesCapitalResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetLimitesCapitalResponse")
+    @RequestWrapper(localName = "getLimitesCapital", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetLimitesCapital")
+    @ResponseWrapper(localName = "getLimitesCapitalResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetLimitesCapitalResponse")
     public OutputLimitesCapitalVO getLimitesCapital(
         @WebParam(name = "entrada", targetNamespace = "")
         InputLimitesCapitalVO entrada);
@@ -143,8 +129,8 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getProyeccionesVO", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVO")
-    @ResponseWrapper(localName = "getProyeccionesVOResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVOResponse")
+    @RequestWrapper(localName = "getProyeccionesVO", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVO")
+    @ResponseWrapper(localName = "getProyeccionesVOResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVOResponse")
     public OutputProyeccionesVO getProyeccionesVO(
         @WebParam(name = "entrada", targetNamespace = "")
         InputProyeccionesVO entrada);
@@ -157,8 +143,8 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getProyeccionesFlexInvGlodVO", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesFlexInvGlodVO")
-    @ResponseWrapper(localName = "getProyeccionesFlexInvGlodVOResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesFlexInvGlodVOResponse")
+    @RequestWrapper(localName = "getProyeccionesFlexInvGlodVO", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesFlexInvGlodVO")
+    @ResponseWrapper(localName = "getProyeccionesFlexInvGlodVOResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesFlexInvGlodVOResponse")
     public OutputWSProyeccionFlexInvGlodVO getProyeccionesFlexInvGlodVO(
         @WebParam(name = "entrada", targetNamespace = "")
         InputProyeccionesVO entrada);
@@ -171,8 +157,8 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getProyeccionesVidAhorro100VO", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVidAhorro100VO")
-    @ResponseWrapper(localName = "getProyeccionesVidAhorro100VOResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVidAhorro100VOResponse")
+    @RequestWrapper(localName = "getProyeccionesVidAhorro100VO", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVidAhorro100VO")
+    @ResponseWrapper(localName = "getProyeccionesVidAhorro100VOResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVidAhorro100VOResponse")
     public OutputWSProyeccionVidAhorro100 getProyeccionesVidAhorro100VO(
         @WebParam(name = "entrada", targetNamespace = "")
         InputProyeccionesVO entrada);
@@ -185,8 +171,8 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getProyeccionesVidAhorro57BisVO", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVidAhorro57BisVO")
-    @ResponseWrapper(localName = "getProyeccionesVidAhorro57BisVOResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVidAhorro57BisVOResponse")
+    @RequestWrapper(localName = "getProyeccionesVidAhorro57BisVO", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVidAhorro57BisVO")
+    @ResponseWrapper(localName = "getProyeccionesVidAhorro57BisVOResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVidAhorro57BisVOResponse")
     public OutputWSProyeccionVidAhorro57Bis getProyeccionesVidAhorro57BisVO(
         @WebParam(name = "entrada", targetNamespace = "")
         InputProyeccionesVO entrada);
@@ -199,8 +185,8 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getProyeccionesVidAhorroFlexVO", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVidAhorroFlexVO")
-    @ResponseWrapper(localName = "getProyeccionesVidAhorroFlexVOResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVidAhorroFlexVOResponse")
+    @RequestWrapper(localName = "getProyeccionesVidAhorroFlexVO", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVidAhorroFlexVO")
+    @ResponseWrapper(localName = "getProyeccionesVidAhorroFlexVOResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetProyeccionesVidAhorroFlexVOResponse")
     public OutputWSProyeccionVidAhorroFlex getProyeccionesVidAhorroFlexVO(
         @WebParam(name = "entrada", targetNamespace = "")
         InputProyeccionesVO entrada);
@@ -213,10 +199,38 @@ public interface WSCotizadorVida {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getTipoProyeccionVO", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetTipoProyeccionVO")
-    @ResponseWrapper(localName = "getTipoProyeccionVOResponse", targetNamespace = "http://ws.wscotizadorvida.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetTipoProyeccionVOResponse")
+    @RequestWrapper(localName = "getTipoProyeccionVO", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetTipoProyeccionVO")
+    @ResponseWrapper(localName = "getTipoProyeccionVOResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetTipoProyeccionVOResponse")
     public OutputTipoProyeccionVO getTipoProyeccionVO(
         @WebParam(name = "entrada", targetNamespace = "")
         InputProyeccionesVO entrada);
+
+    /**
+     * 
+     * @param entrada
+     * @return
+     *     returns cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputCotizacionInternet
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getCotizacionInternet", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetCotizacionInternet")
+    @ResponseWrapper(localName = "getCotizacionInternetResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetCotizacionInternetResponse")
+    public OutputCotizacionInternet getCotizacionInternet(
+        @WebParam(name = "entrada", targetNamespace = "")
+        InputCotizacionInternet entrada);
+
+    /**
+     * 
+     * @param entrada
+     * @return
+     *     returns cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputRentabilidadPromVO
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getRentabilidadPromedio", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetRentabilidadPromedio")
+    @ResponseWrapper(localName = "getRentabilidadPromedioResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetRentabilidadPromedioResponse")
+    public OutputRentabilidadPromVO getRentabilidadPromedio(
+        @WebParam(name = "entrada", targetNamespace = "")
+        InputRentabilidadPromVO entrada);
 
 }

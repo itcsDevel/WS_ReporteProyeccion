@@ -5,6 +5,7 @@
  */
 package cl.cnsv.wsreporteproyeccion.validator;
 
+import cl.cnsv.wsreporteproyeccion.vo.InputObtenerCotizacionInternetVO;
 import cl.cnsv.wsreporteproyeccion.vo.InputObtenerProyeccionVO;
 import cl.cnsv.wsreporteproyeccion.vo.OutputVO;
 
@@ -15,4 +16,6 @@ import cl.cnsv.wsreporteproyeccion.vo.OutputVO;
 public interface ReporteProyeccionValidator {
     
     OutputVO validarObtenerProyeccion(InputObtenerProyeccionVO input);
+    
+    OutputVO validarObtenerCotizacionInternet(InputObtenerCotizacionInternetVO input);
 }

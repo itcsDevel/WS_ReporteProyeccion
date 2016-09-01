@@ -6,7 +6,9 @@ package cl.cnsv.wsreporteproyeccion.utils;
 
 import cl.cnsv.wsreporteproyeccion.service.ReporteProyeccionService;
 import cl.cnsv.wsreporteproyeccion.service.ReporteProyeccionServiceImpl;
+import cl.cnsv.wsreporteproyeccion.vo.InputObtenerCotizacionInternetVO;
 import cl.cnsv.wsreporteproyeccion.vo.InputObtenerProyeccionVO;
+import cl.cnsv.wsreporteproyeccion.vo.OutputObtenerCotizacionInternetVO;
 import cl.cnsv.wsreporteproyeccion.vo.OutputObtenerProyeccionVO;
 
 /** 
@@ -20,7 +22,6 @@ public class ReporteProyeccionUtil {
     private final ReporteProyeccionService servicio;
 
     public ReporteProyeccionUtil() {
-//        servicio = new ReporteProyeccionServiceDummyImpl();
         servicio = new ReporteProyeccionServiceImpl();
     }   
     
@@ -30,5 +31,13 @@ public class ReporteProyeccionUtil {
     
     public String obtenerXmlProyeccion(String numeroPoliza) {
         return servicio.obtenerXmlProyeccion(numeroPoliza);
+    }
+    
+    public OutputObtenerCotizacionInternetVO obtenerCotizacionInternet(InputObtenerCotizacionInternetVO input) {
+        return servicio.obtenerCotizacionInternet(input);
+    }
+    
+    public String obtenerXmlCotizacionInternet(String nroCotizacion) {
+        return servicio.obtenerXmlCotizacionInternet(nroCotizacion);
     }
 } 

@@ -10,10 +10,19 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>javax.ws.rs.core.Application</servlet-name>
-    </servlet> 
+        <servlet-name>WS_ReporteProyeccionServlet</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>cl.cnsv.wsreporteproyeccion.ws</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>CotizacionInternetServlet</servlet-name>
+        <servlet-class>cl.cnsv.wsreporteproyeccion.servlet.CotizacionInternetServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <servlet-name>WS_ReporteProyeccionServlet</servlet-name>
         <url-pattern>/restcns/*</url-pattern>
     </servlet-mapping>
     <servlet>
@@ -23,7 +32,11 @@
     <servlet-mapping>
         <servlet-name>ReporteProyeccionServlet</servlet-name>
         <url-pattern>/ReporteProyeccionServlet</url-pattern>
-    </servlet-mapping>    
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CotizacionInternetServlet</servlet-name>
+        <url-pattern>/CotizacionInternetServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -55,5 +68,5 @@
     <security-role>
         <description/>
         <role-name>USERS</role-name>
-    </security-role>     
+    </security-role>
 </web-app>
