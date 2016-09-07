@@ -18,6 +18,8 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="agenteVenta" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="certificadoCobertura" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="codAgenteVenta" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="codMoneda" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="codigoAgencia" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="declaracionBeneficiario" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="fechaInicio" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -46,6 +48,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "usoInternoci", namespace = "http://cnsv.cl/ci", propOrder = {
     "agenteVenta",
     "certificadoCobertura",
+    "codAgenteVenta",
+    "codMoneda",
     "codigoAgencia",
     "declaracionBeneficiario",
     "fechaInicio",
@@ -67,6 +71,8 @@ public class UsoInternoci {
 
     protected String agenteVenta;
     protected String certificadoCobertura;
+    protected String codAgenteVenta;
+    protected String codMoneda;
     protected String codigoAgencia;
     protected String declaracionBeneficiario;
     protected String fechaInicio;
@@ -130,6 +136,54 @@ public class UsoInternoci {
      */
     public void setCertificadoCobertura(String value) {
         this.certificadoCobertura = value;
+    }
+
+    /**
+     * Gets the value of the codAgenteVenta property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCodAgenteVenta() {
+        return codAgenteVenta;
+    }
+
+    /**
+     * Sets the value of the codAgenteVenta property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCodAgenteVenta(String value) {
+        this.codAgenteVenta = value;
+    }
+
+    /**
+     * Gets the value of the codMoneda property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCodMoneda() {
+        return codMoneda;
+    }
+
+    /**
+     * Sets the value of the codMoneda property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCodMoneda(String value) {
+        this.codMoneda = value;
     }
 
     /**

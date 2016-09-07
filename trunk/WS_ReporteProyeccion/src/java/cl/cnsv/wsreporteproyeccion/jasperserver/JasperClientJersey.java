@@ -78,7 +78,7 @@ public class JasperClientJersey {
          * ****************con rest v2*****************************
          */
         binaryFile = webResource.type("application/pdf").get(byte[].class);
-        if("1".equals(Propiedades.getFuncProperty("tmp.proyeccion.file.create"))) {
+        if("1".equals(Propiedades.getFuncProperty("tmp.file.create"))) {
             String filePath = System.getProperty("TMP_REPORTEPROYECCION");
             String strFileName = fileName.replaceAll("%s", parametro);
             String strFile = filePath + "/" + strFileName;

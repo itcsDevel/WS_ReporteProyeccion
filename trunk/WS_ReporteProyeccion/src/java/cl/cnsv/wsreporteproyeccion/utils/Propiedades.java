@@ -37,7 +37,6 @@ public class Propiedades {
             String funcFile = propFile + File.separator + FUNC_FILENAME;
             fisFunc = new FileInputStream(funcFile);
             FUNC_BUNDLE = new PropertyResourceBundle(fisFunc);
-            fisFunc.close();
         } catch (FileNotFoundException ex) {
             LOGGER.error("Archivo no encontrado " + FUNC_FILENAME + ": " + ex.getMessage(), ex);
         } catch (IOException ex) {
@@ -58,7 +57,6 @@ public class Propiedades {
             String keyFile = propFile + File.separator + KEY_FILENAME;
             fisKey = new FileInputStream(keyFile);
             KEY_BUNDLE = new PropertyResourceBundle(fisKey);
-            fisKey.close();
         } catch (FileNotFoundException ex) {
             LOGGER.error("Archivo no encontrado " + KEY_FILENAME + ": " + ex.getMessage(), ex);
         } catch (IOException ex) {
@@ -79,7 +77,6 @@ public class Propiedades {
             String confFile = propFile + File.separator + CONF_FILENAME;
             fisConf = new FileInputStream(confFile);
             CONF_BUNDLE = new PropertyResourceBundle(fisConf);
-            fisConf.close();
         } catch (FileNotFoundException ex) {
             LOGGER.error("Archivo no encontrado " + CONF_FILENAME + ": " + ex.getMessage(), ex);
         } catch (IOException ex) {

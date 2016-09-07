@@ -223,6 +223,20 @@ public interface WSCotizadorVida {
      * 
      * @param entrada
      * @return
+     *     returns cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputEmailCotizacionInternetVO
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getDatosEmailCotizacionInternet", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetDatosEmailCotizacionInternet")
+    @ResponseWrapper(localName = "getDatosEmailCotizacionInternetResponse", targetNamespace = "http://cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.GetDatosEmailCotizacionInternetResponse")
+    public OutputEmailCotizacionInternetVO getDatosEmailCotizacionInternet(
+        @WebParam(name = "entrada", targetNamespace = "")
+        InputCotizacionInternet entrada);
+
+    /**
+     * 
+     * @param entrada
+     * @return
      *     returns cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputRentabilidadPromVO
      */
     @WebMethod

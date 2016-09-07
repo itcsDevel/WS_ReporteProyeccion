@@ -5,31 +5,41 @@
  */
 package cl.cnsv.wsreporteproyeccion.service;
 
+import cl.cnsv.crypto.encryption.CryptoUtil;
 import cl.cnsv.wsreporteproyeccion.alfresco.ServicioAlfresco;
 import cl.cnsv.wsreporteproyeccion.alfresco.ServicioAlfrescoImpl;
 import cl.cnsv.wsreporteproyeccion.cliente.ClienteServicioCotizadorVida;
 import cl.cnsv.wsreporteproyeccion.cliente.ClienteServiciosProyeccion;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.AntecedentesVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.Asegurableci;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.Beneficiarioci;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.CoberturaVO;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.Coberturaci;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.CondicionadoVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.Cotizacionci;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.DatosSimulacionFlexInvGoldVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.DatosSimulacionVidAhorro100VO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.DatosSimulacionVidAhorro57BisVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.DatosSimulacionVidAhorroFlexVO;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.Edadci;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.EleccionesVO;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.EmailVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputCondicionadoVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputCotizacionInternet;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputProyeccionesVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputCondicionadoVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputCotizacionInternet;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputEmailCotizacionInternetVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputProyeccionesVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputTipoProyeccionVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionFlexInvGlodVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionVidAhorro100;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionVidAhorro57Bis;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionVidAhorroFlex;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.Proyeccionci;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.RentabilidadInversionci;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.UsoInternoci;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.ViaCobroci;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaFlexInvGold;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorro100;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorro57Bis;
@@ -55,13 +65,12 @@ import cl.cnsv.wsreporteproyeccion.vo.OutputObtenerProyeccionVO;
 import cl.cnsv.wsreporteproyeccion.vo.OutputVO;
 import cl.cnsv.wsreporteproyeccion.vo.ResultadoDocumentoVO;
 import com.thoughtworks.xstream.XStream;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
-import java.util.logging.Level;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
@@ -70,7 +79,9 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.mail.util.ByteArrayDataSource;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentFactory;
@@ -98,11 +109,11 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
         LOGGER.info("Iniciando el metodo obtenerProyeccion...");
         OutputObtenerProyeccionVO output = new OutputObtenerProyeccionVO();
         String codigo;
-        String mensaje;   
+        String mensaje;
         String documento = null;
         XStream xStream = new XStream();
         //</editor-fold>
-        
+
         //<editor-fold defaultstate="collapsed" desc="Validacion de entrada">
         OutputVO outputValidacion = validator.validarObtenerProyeccion(input);
         if (!Integer.valueOf(Propiedades.getFuncProperty("codigo.ok")).equals(outputValidacion.getCodigo())) {
@@ -114,7 +125,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             return output;
         }
         //</editor-fold>
-        
+
         //<editor-fold defaultstate="collapsed" desc="Buscar el tipo de proyeccion de la poliza">
         ClienteServicioCotizadorVida clienteCotizadorVida;
         try {
@@ -124,7 +135,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             mensaje = Propiedades.getFuncProperty("ws.cotizadorvida.error.login.mensaje");
             LOGGER.error(mensaje + ": " + e.getMessage(), e);
             output.setCodigo(codigo);
-            output.setMensaje(mensaje);            
+            output.setMensaje(mensaje);
             return output;
         }
         String numeroPoliza = input.getNumeroPoliza();
@@ -143,7 +154,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
                 mensaje = Propiedades.getFuncProperty("ws.cotizadorvida.error.tipoproyeccion.mensaje");
                 LOGGER.info(mensaje + ": " + outputObtenerTipoProyeccion.getMensaje());
                 output.setCodigo(codigo);
-                output.setMensaje(mensaje);            
+                output.setMensaje(mensaje);
                 return output;
             }
 
@@ -152,11 +163,11 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             mensaje = Propiedades.getFuncProperty("ws.cotizadorvida.error.tipoproyeccion.mensaje");
             LOGGER.error(mensaje + ": " + e.getMessage(), e);
             output.setCodigo(codigo);
-            output.setMensaje(mensaje);            
+            output.setMensaje(mensaje);
             return output;
         }
         //</editor-fold>
-        
+
         //<editor-fold defaultstate="collapsed" desc="En base al tipo de proyeccion ir a Alfresco o a JasperServer">
         int tipoProyeccion = outputObtenerTipoProyeccion.getTipoProyeccion();
         if (Integer.valueOf(Propiedades.getFuncProperty("codigo.tipoproyeccion.alfresco")).equals(tipoProyeccion)) {
@@ -185,8 +196,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
                 return output;
             }
             documento = outputAlfresco.getDocumento();
-        }
-        else if (Integer.valueOf(Propiedades.getFuncProperty("codigo.tipoproyeccion.jasperserver")).equals(tipoProyeccion)) {
+        } else if (Integer.valueOf(Propiedades.getFuncProperty("codigo.tipoproyeccion.jasperserver")).equals(tipoProyeccion)) {
             LOGGER.info("Llamado a jasperserver: \n" + xmlInputProyecciones);
             servicioJasperServer = new ServicioJasperServerJerseyImpl();
             ResultadoDocumentoVO outputJasperServer;
@@ -214,7 +224,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             documento = outputJasperServer.getDocumento();
         }
         //</editor-fold>
-        
+
         //<editor-fold defaultstate="collapsed" desc="Terminar">
         codigo = Propiedades.getFuncProperty("codigo.ok");
         mensaje = Propiedades.getFuncProperty("mensaje.ok");
@@ -319,7 +329,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             }
             double primaReferencialAnual = elecciones.getPrimaReferencialAnual();
             double valorUf = elecciones.getValorUf();
-            
+
             //Nodo xml asegurable
             elemAsegurable = elemProyeccion.addElement("asegurable");
             elemAsegurable.addElement("nombres").addText(nombres);
@@ -690,7 +700,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
                 scondsvs = "";
             }
             elemUsoInterno.addElement("codigoSvsPol").addText(scondsvs);
-            
+
             //Construye entrada para el servicio de proyeccion
             TransaccionVidAhorro57Bis inputProyeccion87Bis;
             try {
@@ -745,7 +755,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
                 xml = document.asXML();
                 return xml;
             }
-            
+
             //Nodo edadAhorro
             elemEdadAhorro = elemProyeccion.addElement("edadahorro");
 
@@ -1000,35 +1010,33 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
                 xml = document.asXML();
                 return xml;
             }
-            
+
             //Nodo xml usoInterno
             DatosSimulacionFlexInvGoldVO datosSimulacionFlexInvGoldVO = outputGetProyeccionesFlexInvGold.getDatosSimulacionFlexInvGoldVO();
             Double rentabilidadAnual = datosSimulacionFlexInvGoldVO.getRentabilidadAnual();
             if (rentabilidadAnual == null) {
-                elemUsoInterno.addElement("rentabilidadAnual").addText("");            
-            }
-            else {
-                elemUsoInterno.addElement("rentabilidadAnual").addText(Double.toString(rentabilidadAnual));            
+                elemUsoInterno.addElement("rentabilidadAnual").addText("");
+            } else {
+                elemUsoInterno.addElement("rentabilidadAnual").addText(Double.toString(rentabilidadAnual));
             }
             elemUsoInterno.addElement("rentaImponible").addText("");
-            
+
             //Nodo xml primaTotal
             elemPrimaTotal = elemProyeccion.addElement("primaTotal");
             //TODO completar valorMoneda (UF) en campo primaTotal
             elemPrimaTotal.addElement("valorMoneda").addText("");
-            
-            
+
             //Nodo xml parametros
             elemParametros = elemProyeccion.addElement("parametros");
             elemParametros.addElement("recargosimulador").addText("");
-            
+
             //Obtener el condicionado particular (POL-CAD)
             InputCondicionadoVO inputCondicionadoVO = new InputCondicionadoVO();
             inputCondicionadoVO.setBranch(Propiedades.getFuncProperty("codigo.ramo"));
             inputCondicionadoVO.setCover(Propiedades.getFuncProperty("codigo.figold.cobertura.fallecimiento"));
             inputCondicionadoVO.setModulec(Propiedades.getFuncProperty("codigo.modulo"));
             inputCondicionadoVO.setProduct(Propiedades.getFuncProperty("codigo.figold"));
-            String xmlInputCondicionado = xStream.toXML(inputCondicionadoVO);                    
+            String xmlInputCondicionado = xStream.toXML(inputCondicionadoVO);
             LOGGER.info("Llamado a getNombreCondicionado - cotizadorVida: \n" + xmlInputCondicionado);
             OutputCondicionadoVO outputCondicionadoVO;
             try {
@@ -1044,7 +1052,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
                     elemProyeccion.addElement("mensaje").addText(mensaje);
                     xml = document.asXML();
                     return xml;
-                }                
+                }
             } catch (Exception e) {
                 codigo = Propiedades.getFuncProperty("ws.cotizadorvida.error.condicionado.codigo");
                 mensaje = Propiedades.getFuncProperty("ws.cotizadorvida.error.condicionado.mensaje");
@@ -1061,9 +1069,9 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
                 scondsvs = "";
             }
             elemUsoInterno.addElement("codigoSvsPol").addText(scondsvs);
-            
+
             //Construye entrada para el servicio de proyeccion
-            TransaccionFlexInvGold inputProyeccionFlexInvGold;              
+            TransaccionFlexInvGold inputProyeccionFlexInvGold;
             try {
                 inputProyeccionFlexInvGold = ProyeccionBeanFactory.buildFIGold(outputGetProyeccionesFlexInvGold);
             } catch (Exception e) {
@@ -1115,47 +1123,42 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
                 xml = document.asXML();
                 return xml;
             }
-            
+
             //Nodo edadAhorro
             elemEdadAhorro = elemProyeccion.addElement("edadahorro");
-            
+
             //Ciclo con datos de proyeccion
             List<ResultadoProyeccionFlexInvGold> resultadosProyeccion = outputProyeccionFlexInvGold.getResultadosProyeccion();
             for (ResultadoProyeccionFlexInvGold resultadoProyeccionFlexInvGold : resultadosProyeccion) {
-                elemEdad = elemEdadAhorro.addElement("edad");                
+                elemEdad = elemEdadAhorro.addElement("edad");
                 Integer finalAnnio = resultadoProyeccionFlexInvGold.getFinalAnnio();
                 if (finalAnnio == null) {
                     elemEdad.addElement("finalano").addText("");
-                }
-                else {
+                } else {
                     elemEdad.addElement("finalano").addText(Integer.toString(finalAnnio));
                 }
                 Integer edadActuarial = resultadoProyeccionFlexInvGold.getEdadActuarial();
                 if (edadActuarial == null) {
                     elemEdad.addElement("edadactuarial").addText("");
-                }
-                else {
+                } else {
                     elemEdad.addElement("edadactuarial").addText(Integer.toString(edadActuarial));
                 }
                 Double primaAcumulada = resultadoProyeccionFlexInvGold.getPrimaAcumulada();
                 if (primaAcumulada == null) {
                     elemEdad.addElement("primaacumulada").addText("");
-                }
-                else {
+                } else {
                     elemEdad.addElement("primaacumulada").addText(Double.toString(primaAcumulada));
                 }
                 Double valorPoliza = resultadoProyeccionFlexInvGold.getValorPoliza();
                 if (valorPoliza == null) {
                     elemEdad.addElement("valorpoliza").addText("");
-                }
-                else {
+                } else {
                     elemEdad.addElement("valorpoliza").addText(Double.toString(valorPoliza));
                 }
                 Double indemnizacionFallecimiento = resultadoProyeccionFlexInvGold.getIndemnizacionFallecimiento();
                 if (indemnizacionFallecimiento == null) {
-                    elemEdad.addElement("indemnizacionfallecimiento").addText("");                
-                }
-                else {
+                    elemEdad.addElement("indemnizacionfallecimiento").addText("");
+                } else {
                     elemEdad.addElement("indemnizacionfallecimiento").addText(Double.toString(indemnizacionFallecimiento));
                 }
                 elemEdad.addElement("relleno").addText("I");
@@ -1178,15 +1181,15 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
 
     @Override
     public OutputObtenerCotizacionInternetVO obtenerCotizacionInternet(InputObtenerCotizacionInternetVO input) {
-        
+
         //<editor-fold defaultstate="collapsed" desc="Inicio">
         LOGGER.info("Iniciando el metodo obtenerCotizacionInternet...");
         OutputObtenerCotizacionInternetVO output = new OutputObtenerCotizacionInternetVO();
         String codigo;
-        String mensaje;   
+        String mensaje;
         XStream xStream = new XStream();
         //</editor-fold>
-        
+
         //<editor-fold defaultstate="collapsed" desc="Validacion de entrada">
         OutputVO outputValidacion = validator.validarObtenerCotizacionInternet(input);
         if (!Integer.valueOf(Propiedades.getFuncProperty("codigo.ok")).equals(outputValidacion.getCodigo())) {
@@ -1198,11 +1201,11 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             return output;
         }
         //</editor-fold>
-        
+
         //<editor-fold defaultstate="collapsed" desc="Ir a JasperServer">
         String numeroCotizacion = input.getNumeroCotizacion();
         InputCotizacionInternet inputCotizacionInternet = new InputCotizacionInternet();
-        inputCotizacionInternet.setIdCotizacion(numeroCotizacion);        
+        inputCotizacionInternet.setIdCotizacion(numeroCotizacion);
         String xmlInputCotizacionInternet = xStream.toXML(inputCotizacionInternet);
         LOGGER.info("Llamado a jasperserver: \n" + xmlInputCotizacionInternet);
         servicioJasperServer = new ServicioJasperServerJerseyImpl();
@@ -1227,57 +1230,201 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             output.setCodigo(codigo);
             output.setMensaje(mensaje);
             return output;
-        }        
+        }
         //</editor-fold>
-        
+
+        //<editor-fold defaultstate="collapsed" desc="Ir a buscar datos email al servicio cotizador vida">
+        ClienteServicioCotizadorVida clienteCotizadorVida;
+        try {
+            clienteCotizadorVida = new ClienteServicioCotizadorVida();
+        } catch (Exception e) {
+            codigo = Propiedades.getFuncProperty("ws.cotizadorvida.error.login.codigo");
+            mensaje = Propiedades.getFuncProperty("ws.cotizadorvida.error.login.mensaje");
+            LOGGER.error(mensaje + ": " + e.getMessage(), e);
+            output.setCodigo(codigo);
+            output.setMensaje(mensaje);
+            return output;
+        }
+
+        //Se busca el nombre del asegurado, glosa del plan y numero de propuesta        
+        LOGGER.info("Llamado a getDatosEmailCotizacionInternet - cotizadorVida: \n" + xmlInputCotizacionInternet);
+        OutputEmailCotizacionInternetVO outputEmail;
+        try {
+            outputEmail = clienteCotizadorVida.getDatosEmailCotizacionInternet(inputCotizacionInternet);
+            String xmlOutputEmail = xStream.toXML(outputEmail);
+            LOGGER.info("Respuesta de getDatosEmailCotizacionInternet - cotizadorVida: \n" + xmlOutputEmail);
+            String codigoOutputEmail = outputEmail.getCodigo();
+            if (!Propiedades.getFuncProperty("ws.cotizadorvida.codigo.ok").equals(codigoOutputEmail)) {
+                codigo = Propiedades.getFuncProperty("ws.cotizadorvida.error.datosemail.codigo");
+                mensaje = Propiedades.getFuncProperty("ws.cotizadorvida.error.datosemail.mensaje");
+                LOGGER.info(mensaje + ": " + outputEmail.getMensaje());
+                output.setCodigo(codigo);
+                output.setMensaje(mensaje);
+                return output;
+            }
+
+        } catch (Exception e) {
+            codigo = Propiedades.getFuncProperty("ws.cotizadorvida.error.datosemail.codigo");
+            mensaje = Propiedades.getFuncProperty("ws.cotizadorvida.error.datosemail.mensaje");
+            LOGGER.error(mensaje + ": " + e.getMessage(), e);
+            output.setCodigo(codigo);
+            output.setMensaje(mensaje);
+            return output;
+        }
+        //</editor-fold>
+
         //<editor-fold defaultstate="collapsed" desc="Enviar correo con documento adjunto">
         String documento = outputJasperServer.getDocumento();
-        
-        //TODO referenciar plantilla HTML del archivo de propiedades
-        //TODO reemplazar los siguientes parametros de la plantilla: $P{NOMBRE_ASEGURADO}, ${GLOSA_PLAN}, ${NRO_PROPUESTA}
-        String htmlBody = "";
-        byte[] attachmentData = Base64.decodeBase64(documento);
-        Multipart mp = new MimeMultipart();
-        MimeBodyPart htmlPart = new MimeBodyPart();
-        final String username = Propiedades.getKeyProperty("email.username");
-        final String encryptedPassword = Propiedades.getKeyProperty("email.password");
-        final String auth = Propiedades.getFuncProperty("email.auth");
-        final String starttls = Propiedades.getFuncProperty("email.starttls");
-        final String host = Propiedades.getFuncProperty("email.host");
-        final String port = Propiedades.getFuncProperty("email.port");
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", auth);
-        props.put("mail.smtp.starttls.enable", starttls);
-        props.put("mail.smtp.host", host);
-        props.put("mail.smtp.port", port);
-        Session session = Session.getInstance(props,
-            new javax.mail.Authenticator() {
+        try {
+            EmailVO datosEmail = outputEmail.getDatosEmail();
+            String htmlBody = Propiedades.getFuncProperty("email.html");
+            String nombreAsegurable = datosEmail.getNombreAsegurable();
+            if (nombreAsegurable == null) {
+                nombreAsegurable = "";
+            }
+            htmlBody = StringUtils.replace(htmlBody, "$P[NOMBRE_ASEGURADO]", nombreAsegurable);
+            String glosaPlan = datosEmail.getGlosaPlan();
+            if (glosaPlan == null) {
+                glosaPlan = "";
+            }
+            htmlBody = StringUtils.replace(htmlBody, "$P[GLOSA_PLAN]", glosaPlan);
+            String numeroPropuesta = datosEmail.getNumeroPropuesta();
+            if (numeroPropuesta == null) {
+                numeroPropuesta = "";
+            }
+            htmlBody = StringUtils.replace(htmlBody, "$P[NRO_PROPUESTA]", numeroPropuesta);
+
+            //Parametrizar imagenes
+            String imgBulletBgVerde = Propiedades.getFuncProperty("email.images.bulletbgverde");
+            if (imgBulletBgVerde == null) {
+                imgBulletBgVerde = "";
+            }
+            htmlBody = StringUtils.replace(htmlBody, "$P[IMG_BULLET_BG_VERDE]", imgBulletBgVerde);
+
+            String imgFace = Propiedades.getFuncProperty("email.images.face");
+            if (imgFace == null) {
+                imgFace = "";
+            }
+            htmlBody = StringUtils.replace(htmlBody, "$P[IMG_FACE]", imgFace);
+
+            String imgTwitter = Propiedades.getFuncProperty("email.images.twitter");
+            if (imgTwitter == null) {
+                imgTwitter = "";
+            }
+            htmlBody = StringUtils.replace(htmlBody, "$P[IMG_TWITTER]", imgTwitter);
+
+            String imgYoutube = Propiedades.getFuncProperty("email.images.youtube");
+            if (imgYoutube == null) {
+                imgYoutube = "";
+            }
+            htmlBody = StringUtils.replace(htmlBody, "$P[IMG_YOUTUBE]", imgYoutube);
+
+            String imgMail15 = Propiedades.getFuncProperty("email.images.mail00115");
+            if (imgMail15 == null) {
+                imgMail15 = "";
+            }
+            htmlBody = StringUtils.replace(htmlBody, "$P[IMG_MAIL_00115]", imgMail15);
+
+            String imgFono = Propiedades.getFuncProperty("email.images.fono");
+            if (imgFono == null) {
+                imgFono = "";
+            }
+            htmlBody = StringUtils.replace(htmlBody, "$P[IMG_FONO]", imgFono);
+
+            String imgMail16 = Propiedades.getFuncProperty("email.images.mail00116");
+            if (imgMail16 == null) {
+                imgMail16 = "";
+            }
+            htmlBody = StringUtils.replace(htmlBody, "$P[IMG_MAIL_00116]", imgMail16);
+
+            byte[] attachmentData = Base64.decodeBase64(documento);
+
+            final String username = Propiedades.getKeyProperty("email.username");
+            final String encryptedPassword = Propiedades.getKeyProperty("email.password");
+            String privateKeyFile = Propiedades.getConfProperty("KEY");
+            CryptoUtil cryptoUtil = new CryptoUtil("", privateKeyFile);
+            final String password = cryptoUtil.decryptData(encryptedPassword);
+            final String auth = Propiedades.getFuncProperty("email.auth");
+            final String starttls = Propiedades.getFuncProperty("email.starttls");
+            final String host = Propiedades.getFuncProperty("email.host");
+            final String port = Propiedades.getFuncProperty("email.port");
+
+            //Log de datos de correo
+            String strDatosCorreo
+                    = "username: " + username + "\n"
+                    + "auth: " + auth + "\n"
+                    + "host: " + host + "\n";
+            LOGGER.info("Datos correo: \n".concat(strDatosCorreo));
+
+            Properties props = new Properties();
+            props.put("mail.smtp.auth", auth);
+            if (!"0".equals(starttls)) {
+                props.put("mail.smtp.starttls.enable", starttls);
+            }
+            props.put("mail.smtp.host", host);
+            if (!"0".equals(port)) {
+                props.put("mail.smtp.port", port);
+            }
+            Session session = Session.getInstance(props,
+                    new javax.mail.Authenticator() {
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(username, encryptedPassword);
+                    return new PasswordAuthentication(username, password);
                 }
             });
-        try {
-            htmlPart.setContent(htmlBody, "text/html");
-            mp.addBodyPart(htmlPart);
-            MimeBodyPart attachment = new MimeBodyPart();
-            InputStream attachmentDataStream = new ByteArrayInputStream(attachmentData);
-            attachment.setFileName("manual.pdf");
-            attachment.setContent(attachmentDataStream, "application/pdf");
-            mp.addBodyPart(attachment);
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("from-email@gmail.com"));
-            message.setRecipients(Message.RecipientType.TO, 
-                InternetAddress.parse("to-email@gmail.com"));
-            message.setSubject("Testing Subject");            
-            message.setContent(mp);
-            Transport.send(message);
-            
-        } catch (MessagingException ex) {
-            java.util.logging.Logger.getLogger(ReporteProyeccionServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+
+            String fileName = Propiedades.getFuncProperty("tmp.cotizacionInternet.file.name");
+            fileName = fileName.replaceAll("%s", numeroPropuesta);
+            fileName = fileName + ".pdf";
+
+            // creates a new e-mail message
+            Message msg = new MimeMessage(session);
+            String from = Propiedades.getFuncProperty("email.from");
+            msg.setFrom(new InternetAddress(from));
+            //TODO considerar email de prueba o email del asegurado            
+            String emailTo;
+            if ("1".equals(Propiedades.getFuncProperty("email.to.test"))) {
+                emailTo = Propiedades.getFuncProperty("email.to.mail");
+            } else {
+                emailTo = datosEmail.getEmail();
+            }
+            InternetAddress[] toAddresses = {new InternetAddress(emailTo)};
+            msg.setRecipients(Message.RecipientType.TO, toAddresses);
+            String subject = Propiedades.getFuncProperty("email.subject");
+            msg.setSubject(subject);
+            msg.setSentDate(new Date());
+
+            // creates message part
+            MimeBodyPart messageBodyPart = new MimeBodyPart();
+            messageBodyPart.setContent(htmlBody, "text/html");
+
+            // creates multi-part
+            Multipart multipart = new MimeMultipart();
+            multipart.addBodyPart(messageBodyPart);
+
+            // adds attachments
+            MimeBodyPart attachPart = new MimeBodyPart();
+            DataSource dataSource = new ByteArrayDataSource(attachmentData, "application/pdf");
+            attachPart.setDataHandler(new DataHandler(dataSource));
+            attachPart.setFileName(fileName);
+            multipart.addBodyPart(attachPart);
+
+            // sets the multi-part as e-mail's content
+            msg.setContent(multipart);
+
+            // sends the e-mail
+            Transport.send(msg);
+
+        } catch (Exception ex) {
+            codigo = Propiedades.getFuncProperty("email.error.codigo");
+            mensaje = Propiedades.getFuncProperty("email.error.mensaje");
+            LOGGER.error(mensaje + ": " + ex.getMessage(), ex);
+            output.setCodigo(codigo);
+            output.setMensaje(mensaje);
+            return output;
+        }
         //</editor-fold>
-        
+
         //<editor-fold defaultstate="collapsed" desc="Termino">
         codigo = Propiedades.getFuncProperty("codigo.ok");
         mensaje = Propiedades.getFuncProperty("mensaje.ok");
@@ -1285,12 +1432,12 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
         output.setMensaje(mensaje);
         return output;
         //</editor-fold>
-    
+
     }
 
     @Override
     public String obtenerXmlCotizacionInternet(String nroCotizacion) {
-        
+
         //<editor-fold defaultstate="collapsed" desc="Inicio">
         String xml;
         XStream xStream = new XStream();
@@ -1300,15 +1447,14 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
         Element elemCotizacion = document.addElement("cotizacion");
         Element elemAsegurable;
         Element elemContratante;
-        
-//        Element elemBeneficiarios;
-//        Element elemViaCobro;
-//        Element elemUsoInterno;
-//        Element elemCoberturas;
-//        Element elemRentabilidadInversion;
-//        Element elemProyeccion;        
+        Element elemBeneficiarios;
+        Element elemViaCobro;
+        Element elemUsoInterno;
+        Element elemCoberturas;
+        Element elemRentabilidadInversion;
+        Element elemProyeccion;
         //</editor-fold>
-        
+
         //<editor-fold defaultstate="collapsed" desc="Obtener datos de cotizacion internet">
         ClienteServicioCotizadorVida clienteCotizadorVida;
         try {
@@ -1341,7 +1487,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
                 xml = document.asXML();
                 return xml;
             }
-            Cotizacionci cotizacion = outputCotizacionInternet.getCotizacion();                        
+            Cotizacionci cotizacion = outputCotizacionInternet.getCotizacion();
             Asegurableci asegurable = cotizacion.getAsegurable();
             String actividadEconomica = asegurable.getActividadEconomica();
             if (actividadEconomica == null) {
@@ -1410,7 +1556,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             String rut = asegurable.getRut();
             if (rut == null) {
                 rut = "";
-            }            
+            }
             String sexo = asegurable.getSexo();
             if (sexo == null) {
                 sexo = "";
@@ -1418,8 +1564,8 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             String tipoFumador = asegurable.getTipoFumador();
             if (tipoFumador == null) {
                 tipoFumador = "";
-            }            
-            
+            }
+
             //Nodo xml asegurable
             elemAsegurable = elemCotizacion.addElement("asegurable");
             elemAsegurable.addElement("actividadEconomica").setText(actividadEconomica);
@@ -1441,7 +1587,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             elemAsegurable.addElement("rut").setText(rut);
             elemAsegurable.addElement("sexo").setText(sexo);
             elemAsegurable.addElement("tipoFumador").setText(tipoFumador);
-            
+
             //Nodo xml contratante
             elemContratante = elemCotizacion.addElement("contratante");
             elemContratante.addElement("actividadEconomica").setText(actividadEconomica);
@@ -1463,7 +1609,338 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             elemContratante.addElement("rut").setText(rut);
             elemContratante.addElement("sexo").setText(sexo);
             elemContratante.addElement("tipoFumador").setText(tipoFumador);
-            
+
+            //Datos beneficiarios
+            elemBeneficiarios = elemCotizacion.addElement("beneficiarios");
+            List<Beneficiarioci> beneficiarios = cotizacion.getBeneficiarios();
+            if (beneficiarios != null) {
+                for (Beneficiarioci beneficiario : beneficiarios) {
+                    Element elemBeneficiario = elemBeneficiarios.addElement("beneficiario");
+                    String apellidoPaternoBeneficiario = beneficiario.getApellidoPaterno();
+                    if (apellidoPaternoBeneficiario == null) {
+                        apellidoPaternoBeneficiario = "";
+                    }
+                    elemBeneficiario.addElement("apellidoPaterno").setText(apellidoPaternoBeneficiario);
+                    String apellidoMaternoBeneficiario = beneficiario.getApellidoMaterno();
+                    if (apellidoMaternoBeneficiario == null) {
+                        apellidoMaternoBeneficiario = "";
+                    }
+                    elemBeneficiario.addElement("apellidoMaterno").setText(apellidoMaternoBeneficiario);
+                    String nombreBeneficiario = beneficiario.getNombres();
+                    if (nombreBeneficiario == null) {
+                        nombreBeneficiario = "";
+                    }
+                    elemBeneficiario.addElement("nombres").setText(nombreBeneficiario);
+                    String direccionParticularBeneficiario = beneficiario.getDireccionParticular();
+                    if (direccionParticularBeneficiario == null) {
+                        direccionParticularBeneficiario = "";
+                    }
+                    elemBeneficiario.addElement("direccionParticular").setText(direccionParticularBeneficiario);
+                    String comunaBeneficiario = beneficiario.getComuna();
+                    if (comunaBeneficiario == null) {
+                        comunaBeneficiario = "";
+                    }
+                    elemBeneficiario.addElement("comuna").setText(comunaBeneficiario);
+                    String celularBeneficiario = beneficiario.getCelular();
+                    if (celularBeneficiario == null) {
+                        celularBeneficiario = "";
+                    }
+                    elemBeneficiario.addElement("celular").setText(celularBeneficiario);
+                    String emailBeneficiario = beneficiario.getEmail();
+                    if (emailBeneficiario == null) {
+                        emailBeneficiario = "";
+                    }
+                    elemBeneficiario.addElement("email").setText(emailBeneficiario);
+                    String ciudadBeneficiario = beneficiario.getCiudad();
+                    if (ciudadBeneficiario == null) {
+                        ciudadBeneficiario = "";
+                    }
+                    elemBeneficiario.addElement("ciudad").setText(ciudadBeneficiario);
+                    String fijoBeneficiario = beneficiario.getFijo();
+                    if (fijoBeneficiario == null) {
+                        fijoBeneficiario = "";
+                    }
+                    elemBeneficiario.addElement("fijo").setText(fijoBeneficiario);
+                }
+            }
+
+            //Datos via cobro
+            ViaCobroci viaCobro = cotizacion.getViaCobro();
+            if (viaCobro != null) {
+                elemViaCobro = elemCotizacion.addElement("viaCobro");
+                String institucion = viaCobro.getInstitucion();
+                if (institucion == null) {
+                    institucion = "";
+                }
+                elemViaCobro.addElement("institucion").setText(institucion);
+                String numeroCuenta = viaCobro.getNumeroCuenta();
+                if (numeroCuenta == null) {
+                    numeroCuenta = "";
+                }
+                elemViaCobro.addElement("numeroCuenta").setText(numeroCuenta);
+                String diaCobro = viaCobro.getDiaCobro();
+                if (diaCobro == null) {
+                    diaCobro = "";
+                }
+                elemViaCobro.addElement("diaCobro").setText(diaCobro);
+                String numeroMandato = viaCobro.getNumeroMandato();
+                if (numeroMandato == null) {
+                    numeroMandato = "";
+                }
+                elemViaCobro.addElement("numeroMandato").setText(numeroMandato);
+            }
+
+            //Datos uso interno
+            UsoInternoci usoInterno = cotizacion.getUsoInterno();
+            if (usoInterno != null) {
+                elemUsoInterno = elemCotizacion.addElement("usoInterno");
+                String codMoneda = usoInterno.getCodMoneda();
+                if (codMoneda == null) {
+                    codMoneda = "";
+                }
+                elemUsoInterno.addElement("codMoneda").setText(codMoneda);
+                String moneda = usoInterno.getMoneda();
+                if (moneda == null) {
+                    moneda = "";
+                }
+                elemUsoInterno.addElement("moneda").setText(moneda);
+                String codigoAgencia = usoInterno.getCodigoAgencia();
+                if (codigoAgencia == null) {
+                    codigoAgencia = "";
+                }
+                elemUsoInterno.addElement("codigoAgencia").setText(codigoAgencia);
+                String codAgenteVenta = usoInterno.getCodAgenteVenta();
+                if (codAgenteVenta == null) {
+                    codAgenteVenta = "";
+                }
+                elemUsoInterno.addElement("codAgenteVenta").setText(codAgenteVenta);
+                String agenteVenta = usoInterno.getAgenteVenta();
+                if (agenteVenta == null) {
+                    agenteVenta = "";
+                }
+                elemUsoInterno.addElement("agenteVenta").setText(agenteVenta);
+                String origenVenta = usoInterno.getOrigenVenta();
+                if (origenVenta == null) {
+                    origenVenta = "";
+                }
+                elemUsoInterno.addElement("origenVenta").setText(origenVenta);
+                String certificadoCobertura = usoInterno.getCertificadoCobertura();
+                if (certificadoCobertura == null) {
+                    certificadoCobertura = "";
+                }
+                elemUsoInterno.addElement("certificadoCobertura").setText(certificadoCobertura);
+                String declaracionBeneficiario = usoInterno.getDeclaracionBeneficiario();
+                if (declaracionBeneficiario == null) {
+                    declaracionBeneficiario = "";
+                }
+                elemUsoInterno.addElement("declaracionBeneficiario").setText(declaracionBeneficiario);
+                String numeroDps = usoInterno.getNumeroDps();
+                if (numeroDps == null) {
+                    numeroDps = "";
+                }
+                elemUsoInterno.addElement("numeroDps").setText(numeroDps);
+                String numeroDpsConyuge = usoInterno.getNumeroDpsConyuge();
+                if (numeroDpsConyuge == null) {
+                    numeroDpsConyuge = "";
+                }
+                elemUsoInterno.addElement("numeroDpsConyuge").setText(numeroDpsConyuge);
+                String plan = usoInterno.getPlan();
+                if (plan == null) {
+                    plan = "";
+                }
+                elemUsoInterno.addElement("plan").setText(plan);
+                String gastosSuscripcion = usoInterno.getGastosSuscripcion();
+                if (gastosSuscripcion == null) {
+                    gastosSuscripcion = "";
+                }
+                elemUsoInterno.addElement("gastosSuscripcion").setText(gastosSuscripcion);
+                String formaPago = usoInterno.getFormaPago();
+                if (formaPago == null) {
+                    formaPago = "";
+                }
+                elemUsoInterno.addElement("formaPago").setText(formaPago);
+                String fechaInicio = usoInterno.getFechaInicio();
+                if (fechaInicio == null) {
+                    fechaInicio = "";
+                }
+                elemUsoInterno.addElement("fechaInicio").setText(fechaInicio);
+                String fechaTermino = usoInterno.getFechaTermino();
+                if (fechaTermino == null) {
+                    fechaTermino = "";
+                }
+                elemUsoInterno.addElement("fechaTermino").setText(fechaTermino);
+                String periodoCobertura = usoInterno.getPeriodoCobertura();
+                if (periodoCobertura == null) {
+                    periodoCobertura = "";
+                }
+                elemUsoInterno.addElement("periodoCobertura").setText(periodoCobertura);
+                String periodoPago = usoInterno.getPeriodoPago();
+                if (periodoPago == null) {
+                    periodoPago = "";
+                }
+                elemUsoInterno.addElement("periodoPago").setText(periodoPago);
+                String opcion = usoInterno.getOpcion();
+                if (opcion == null) {
+                    opcion = "";
+                }
+                elemUsoInterno.addElement("opcion").setText(opcion);
+                String fondoInversion = usoInterno.getFondoInversion();
+                if (fondoInversion == null) {
+                    fondoInversion = "";
+                }
+                elemUsoInterno.addElement("fondoInversion").setText(fondoInversion);
+                String rmg = usoInterno.getRmg();
+                if (rmg == null) {
+                    rmg = "";
+                }
+                elemUsoInterno.addElement("rmg").setText(rmg);
+            }
+
+            //Datos coberturas
+            elemCoberturas = elemCotizacion.addElement("coberturas");
+            List<Coberturaci> coberturas = cotizacion.getCoberturas();
+            if (coberturas != null) {
+                for (Coberturaci cobertura : coberturas) {
+                    Element elemCobertura = elemCoberturas.addElement("cobertura");
+                    String nombre = cobertura.getNombre();
+                    if (nombre == null) {
+                        nombre = "";
+                    }
+                    elemCobertura.addElement("nombre").setText(nombre);
+                    String capital = cobertura.getCapital();
+                    if (capital == null) {
+                        capital = "";
+                    }
+                    elemCobertura.addElement("capital").setText(capital);
+                    String costoCobertura = cobertura.getCostoCobertura();
+                    if (costoCobertura == null) {
+                        costoCobertura = "";
+                    }
+                    elemCobertura.addElement("costoCobertura").setText(costoCobertura);
+                    String nombreCondicionado = cobertura.getNombreCondicionado();
+                    if (nombreCondicionado == null) {
+                        nombreCondicionado = "";
+                    }
+                    elemCobertura.addElement("nombreCondicionado").setText(nombreCondicionado);
+                    String codigoSvs = cobertura.getCodigoSvs();
+                    if (codigoSvs == null) {
+                        codigoSvs = "";
+                    }
+                    elemCobertura.addElement("codigoSvs").setText(codigoSvs);
+                }
+            }
+
+            //Datos rentabilidad inversion
+            RentabilidadInversionci rentabilidadInversion = cotizacion.getRentabilidadInversion();
+            elemRentabilidadInversion = elemCotizacion.addElement("rentabilidadInversion");
+            if (rentabilidadInversion != null) {
+                String codigoSvs = rentabilidadInversion.getCodigoSvs();
+                if (codigoSvs == null) {
+                    codigoSvs = "";
+                }
+                elemRentabilidadInversion.addElement("codigoSvs").setText(codigoSvs);
+                String codigoSvsCoberturaFallecimiento = rentabilidadInversion.getCodigoSvsCoberturaFallecimiento();
+                if (codigoSvsCoberturaFallecimiento == null) {
+                    codigoSvsCoberturaFallecimiento = "";
+                }
+                elemRentabilidadInversion.addElement("codigoSvsCoberturaFallecimiento").setText(codigoSvsCoberturaFallecimiento);
+                String codigoSvsCoberturaMuerteAccidental = rentabilidadInversion.getCodigoSvsCoberturaMuerteAccidental();
+                if (codigoSvsCoberturaMuerteAccidental == null) {
+                    codigoSvsCoberturaMuerteAccidental = "";
+                }
+                elemRentabilidadInversion.addElement("codigoSvsCoberturaMuerteAccidental").setText(codigoSvsCoberturaMuerteAccidental);
+            }
+
+            //Datos proyeccion
+            Proyeccionci proyeccion = cotizacion.getProyeccion();
+            elemProyeccion = elemCotizacion.addElement("proyeccion");
+            if (proyeccion != null) {
+                String fecha = proyeccion.getFecha();
+                if (fecha == null) {
+                    fecha = "";
+                }
+                elemProyeccion.addElement("fecha").setText(fecha);
+                String valorUf = proyeccion.getValorUf();
+                if (valorUf == null) {
+                    valorUf = "";
+                }
+                elemProyeccion.addElement("valorUf").setText(valorUf);
+                String supuestoRentabilidad = proyeccion.getSupuestoRentabilidad();
+                if (supuestoRentabilidad == null) {
+                    supuestoRentabilidad = "";
+                }
+                elemProyeccion.addElement("supuestoRentabilidad").setText(supuestoRentabilidad);
+
+                //Datos proyeccion - coberturas
+                coberturas = proyeccion.getCoberturas();
+                if (coberturas != null) {
+                    for (Coberturaci cobertura : coberturas) {
+                        Element elemCobertura = elemProyeccion.addElement("cobertura");
+                        String nombre = cobertura.getNombre();
+                        if (nombre == null) {
+                            nombre = "";
+                        }
+                        elemCobertura.addElement("nombre").setText(nombre);
+                        String capital = cobertura.getCapital();
+                        if (capital == null) {
+                            elemCobertura.addElement("capital").setText(capital);
+                        }
+                        String costoCobertura = cobertura.getCostoCobertura();
+                        if (costoCobertura == null) {
+                            costoCobertura = "";
+                        }
+                        elemCobertura.addElement("costoCobertura").setText(costoCobertura);
+                        String nombreCondicionado = cobertura.getNombreCondicionado();
+                        if (nombreCondicionado == null) {
+                            nombreCondicionado = "";
+                        }
+                        elemCobertura.addElement("nombreCondicionado").setText(nombreCondicionado);
+                        String codigoSvs = cobertura.getCodigoSvs();
+                        if (codigoSvs == null) {
+                            codigoSvs = "";
+                        }
+                        elemCobertura.addElement("codigoSvs").setText(codigoSvs);
+                    }
+                }
+
+                //Datos proyeccion - edad ahorro
+                Element elemEdadAhorro = elemProyeccion.addElement("edadahorro");
+                List<Edadci> edades = proyeccion.getEdades();
+                for (Edadci edad : edades) {
+                    Element elemEdad = elemEdadAhorro.addElement("edad");
+                    String finalAnio = edad.getFinalAnio();
+                    if (finalAnio == null) {
+                        finalAnio = "";
+                    }
+                    elemEdad.addElement("finalAnio").setText(finalAnio);
+                    String edadActuarialAhorro = edad.getEdadActuarial();
+                    if (edadActuarialAhorro == null) {
+                        edadActuarialAhorro = "";
+                    }
+                    elemEdad.addElement("edadActuarial").setText(edadActuarialAhorro);
+                    String primaAcumulada = edad.getPrimaAcumulada();
+                    if (primaAcumulada == null) {
+                        primaAcumulada = "";
+                    }
+                    elemEdad.addElement("primaAcumulada").setText(primaAcumulada);
+                    String otrosAbonos = edad.getOtrosAbonos();
+                    if (otrosAbonos == null) {
+                        otrosAbonos = "";
+                    }
+                    elemEdad.addElement("otrosAbonos").setText(otrosAbonos);
+                    String valorPoliza = edad.getValorPoliza();
+                    if (valorPoliza == null) {
+                        valorPoliza = "";
+                    }
+                    elemEdad.addElement("valorPoliza").setText(valorPoliza);
+                    String indemnizacionFallecimiento = edad.getIndemnizacionFallecimiento();
+                    if (indemnizacionFallecimiento == null) {
+                        indemnizacionFallecimiento = "";
+                    }
+                    elemEdad.addElement("indemnizacionFallecimiento").setText(indemnizacionFallecimiento);
+                }
+            }
+
         } catch (Exception e) {
             codigo = Propiedades.getFuncProperty("ws.cotizadorvida.error.cotizacionInternet.codigo");
             mensaje = Propiedades.getFuncProperty("ws.cotizadorvida.error.cotizacionInternet.mensaje");
@@ -1474,7 +1951,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             return xml;
         }
         //</editor-fold>
-        
+
         //<editor-fold defaultstate="collapsed" desc="Termino">
         codigo = Propiedades.getFuncProperty("codigo.ok");
         mensaje = Propiedades.getFuncProperty("mensaje.ok");

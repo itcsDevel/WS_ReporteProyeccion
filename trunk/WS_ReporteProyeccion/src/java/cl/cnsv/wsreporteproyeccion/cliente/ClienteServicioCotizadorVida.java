@@ -11,6 +11,7 @@ import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputCotizacionInternet
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputProyeccionesVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputCondicionadoVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputCotizacionInternet;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputEmailCotizacionInternetVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputProyeccionesVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputTipoProyeccionVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionFlexInvGlodVO;
@@ -132,6 +133,16 @@ public class ClienteServicioCotizadorVida {
      */
     public OutputCotizacionInternet getCotizacionInternet(InputCotizacionInternet input) {
         return port.getCotizacionInternet(input);
+    }
+    
+    /**
+     * Permite obtener los datos para la plantilla html del email 
+     * de cotizacion internet.
+     * @param input
+     * @return 
+     */
+    public OutputEmailCotizacionInternetVO getDatosEmailCotizacionInternet(InputCotizacionInternet input) {
+        return port.getDatosEmailCotizacionInternet(input);
     }
     
 }
