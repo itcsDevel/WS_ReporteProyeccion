@@ -30,6 +30,7 @@ public class ObjectFactory {
     private final static QName _GetMontosInyeccion_QNAME = new QName("http://cnsv.cl/", "getMontosInyeccion");
     private final static QName _Cobertura_QNAME = new QName("http://cnsv.cl/", "cobertura");
     private final static QName _GetRentabilidadPromedio_QNAME = new QName("http://cnsv.cl/", "getRentabilidadPromedio");
+    private final static QName _GetDatosPlanCotizacionInternetResponse_QNAME = new QName("http://cnsv.cl/", "getDatosPlanCotizacionInternetResponse");
     private final static QName _GetCostoCoberturaAdicionalResponse_QNAME = new QName("http://cnsv.cl/", "getCostoCoberturaAdicionalResponse");
     private final static QName _GetLimitesCapitalResponse_QNAME = new QName("http://cnsv.cl/", "getLimitesCapitalResponse");
     private final static QName _InputCostoCoberturaPrincipalVO_QNAME = new QName("http://cnsv.cl/", "inputCostoCoberturaPrincipalVO");
@@ -38,6 +39,7 @@ public class ObjectFactory {
     private final static QName _GetDatosEmailCotizacionInternetResponse_QNAME = new QName("http://cnsv.cl/", "getDatosEmailCotizacionInternetResponse");
     private final static QName _GetCostoCoberturaAdicional_QNAME = new QName("http://cnsv.cl/", "getCostoCoberturaAdicional");
     private final static QName _GetCotizacionInternetResponse_QNAME = new QName("http://cnsv.cl/", "getCotizacionInternetResponse");
+    private final static QName _GetDatosPlanCotizacionInternet_QNAME = new QName("http://cnsv.cl/", "getDatosPlanCotizacionInternet");
     private final static QName _GetRentabilidadPromedioPorFondo_QNAME = new QName("http://cnsv.cl/", "getRentabilidadPromedioPorFondo");
     private final static QName _GetTipoProyeccionVO_QNAME = new QName("http://cnsv.cl/", "getTipoProyeccionVO");
     private final static QName _InputMontosInyeccionVO_QNAME = new QName("http://cnsv.cl/", "inputMontosInyeccionVO");
@@ -76,411 +78,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RentabilidadInversionci }
-     * 
-     */
-    public RentabilidadInversionci createRentabilidadInversionci() {
-        return new RentabilidadInversionci();
-    }
-
-    /**
-     * Create an instance of {@link CapitalVO }
-     * 
-     */
-    public CapitalVO createCapitalVO() {
-        return new CapitalVO();
-    }
-
-    /**
-     * Create an instance of {@link InputCondicionadoVO }
-     * 
-     */
-    public InputCondicionadoVO createInputCondicionadoVO() {
-        return new InputCondicionadoVO();
-    }
-
-    /**
-     * Create an instance of {@link GetRentabilidadPromedioResponse }
-     * 
-     */
-    public GetRentabilidadPromedioResponse createGetRentabilidadPromedioResponse() {
-        return new GetRentabilidadPromedioResponse();
-    }
-
-    /**
-     * Create an instance of {@link ListFamiliaresVO }
-     * 
-     */
-    public ListFamiliaresVO createListFamiliaresVO() {
-        return new ListFamiliaresVO();
-    }
-
-    /**
-     * Create an instance of {@link GetMontosInyeccion }
-     * 
-     */
-    public GetMontosInyeccion createGetMontosInyeccion() {
-        return new GetMontosInyeccion();
-    }
-
-    /**
-     * Create an instance of {@link OutputWSProyeccionVidAhorro57Bis }
-     * 
-     */
-    public OutputWSProyeccionVidAhorro57Bis createOutputWSProyeccionVidAhorro57Bis() {
-        return new OutputWSProyeccionVidAhorro57Bis();
-    }
-
-    /**
-     * Create an instance of {@link CostoCoberturaAdicionalVO }
-     * 
-     */
-    public CostoCoberturaAdicionalVO createCostoCoberturaAdicionalVO() {
-        return new CostoCoberturaAdicionalVO();
-    }
-
-    /**
-     * Create an instance of {@link InputCostoCoberturaPrincipalVO }
-     * 
-     */
-    public InputCostoCoberturaPrincipalVO createInputCostoCoberturaPrincipalVO() {
-        return new InputCostoCoberturaPrincipalVO();
-    }
-
-    /**
-     * Create an instance of {@link DatosSimulacionVidAhorro57BisVO }
-     * 
-     */
-    public DatosSimulacionVidAhorro57BisVO createDatosSimulacionVidAhorro57BisVO() {
-        return new DatosSimulacionVidAhorro57BisVO();
-    }
-
-    /**
-     * Create an instance of {@link GetRentabilidadPromedioPorFondo }
-     * 
-     */
-    public GetRentabilidadPromedioPorFondo createGetRentabilidadPromedioPorFondo() {
-        return new GetRentabilidadPromedioPorFondo();
-    }
-
-    /**
-     * Create an instance of {@link Asegurableci }
-     * 
-     */
-    public Asegurableci createAsegurableci() {
-        return new Asegurableci();
-    }
-
-    /**
-     * Create an instance of {@link GetNombreCondicionadoResponse }
-     * 
-     */
-    public GetNombreCondicionadoResponse createGetNombreCondicionadoResponse() {
-        return new GetNombreCondicionadoResponse();
-    }
-
-    /**
-     * Create an instance of {@link CoberturaVO }
-     * 
-     */
-    public CoberturaVO createCoberturaVO() {
-        return new CoberturaVO();
-    }
-
-    /**
-     * Create an instance of {@link GetProyeccionesVO }
-     * 
-     */
-    public GetProyeccionesVO createGetProyeccionesVO() {
-        return new GetProyeccionesVO();
-    }
-
-    /**
      * Create an instance of {@link Coberturaci }
      * 
      */
     public Coberturaci createCoberturaci() {
         return new Coberturaci();
-    }
-
-    /**
-     * Create an instance of {@link OutputMontosInyeccionVO }
-     * 
-     */
-    public OutputMontosInyeccionVO createOutputMontosInyeccionVO() {
-        return new OutputMontosInyeccionVO();
-    }
-
-    /**
-     * Create an instance of {@link GetTipoProyeccionVO }
-     * 
-     */
-    public GetTipoProyeccionVO createGetTipoProyeccionVO() {
-        return new GetTipoProyeccionVO();
-    }
-
-    /**
-     * Create an instance of {@link DatosSimulacionVidAhorro100VO }
-     * 
-     */
-    public DatosSimulacionVidAhorro100VO createDatosSimulacionVidAhorro100VO() {
-        return new DatosSimulacionVidAhorro100VO();
-    }
-
-    /**
-     * Create an instance of {@link InputCostoCoberturaAdicionalVO }
-     * 
-     */
-    public InputCostoCoberturaAdicionalVO createInputCostoCoberturaAdicionalVO() {
-        return new InputCostoCoberturaAdicionalVO();
-    }
-
-    /**
-     * Create an instance of {@link Beneficiarioci }
-     * 
-     */
-    public Beneficiarioci createBeneficiarioci() {
-        return new Beneficiarioci();
-    }
-
-    /**
-     * Create an instance of {@link GetCostoCoberturaPrincipalResponse }
-     * 
-     */
-    public GetCostoCoberturaPrincipalResponse createGetCostoCoberturaPrincipalResponse() {
-        return new GetCostoCoberturaPrincipalResponse();
-    }
-
-    /**
-     * Create an instance of {@link InputRentabilidadPromVO }
-     * 
-     */
-    public InputRentabilidadPromVO createInputRentabilidadPromVO() {
-        return new InputRentabilidadPromVO();
-    }
-
-    /**
-     * Create an instance of {@link OutputCondicionadoVO }
-     * 
-     */
-    public OutputCondicionadoVO createOutputCondicionadoVO() {
-        return new OutputCondicionadoVO();
-    }
-
-    /**
-     * Create an instance of {@link GetProyeccionesVidAhorro100VO }
-     * 
-     */
-    public GetProyeccionesVidAhorro100VO createGetProyeccionesVidAhorro100VO() {
-        return new GetProyeccionesVidAhorro100VO();
-    }
-
-    /**
-     * Create an instance of {@link GetProyeccionesVidAhorroFlexVO }
-     * 
-     */
-    public GetProyeccionesVidAhorroFlexVO createGetProyeccionesVidAhorroFlexVO() {
-        return new GetProyeccionesVidAhorroFlexVO();
-    }
-
-    /**
-     * Create an instance of {@link FamiliarVO }
-     * 
-     */
-    public FamiliarVO createFamiliarVO() {
-        return new FamiliarVO();
-    }
-
-    /**
-     * Create an instance of {@link GetProyeccionesVidAhorro100VOResponse }
-     * 
-     */
-    public GetProyeccionesVidAhorro100VOResponse createGetProyeccionesVidAhorro100VOResponse() {
-        return new GetProyeccionesVidAhorro100VOResponse();
-    }
-
-    /**
-     * Create an instance of {@link ViaCobroci }
-     * 
-     */
-    public ViaCobroci createViaCobroci() {
-        return new ViaCobroci();
-    }
-
-    /**
-     * Create an instance of {@link OutputCostoCoberturaPrincipalVO }
-     * 
-     */
-    public OutputCostoCoberturaPrincipalVO createOutputCostoCoberturaPrincipalVO() {
-        return new OutputCostoCoberturaPrincipalVO();
-    }
-
-    /**
-     * Create an instance of {@link Test }
-     * 
-     */
-    public Test createTest() {
-        return new Test();
-    }
-
-    /**
-     * Create an instance of {@link GetLimitesCapitalResponse }
-     * 
-     */
-    public GetLimitesCapitalResponse createGetLimitesCapitalResponse() {
-        return new GetLimitesCapitalResponse();
-    }
-
-    /**
-     * Create an instance of {@link DatosSimulacionFlexInvGoldVO }
-     * 
-     */
-    public DatosSimulacionFlexInvGoldVO createDatosSimulacionFlexInvGoldVO() {
-        return new DatosSimulacionFlexInvGoldVO();
-    }
-
-    /**
-     * Create an instance of {@link DatosSimulacionVidAhorroFlexVO }
-     * 
-     */
-    public DatosSimulacionVidAhorroFlexVO createDatosSimulacionVidAhorroFlexVO() {
-        return new DatosSimulacionVidAhorroFlexVO();
-    }
-
-    /**
-     * Create an instance of {@link GetCostoCoberturaAdicional }
-     * 
-     */
-    public GetCostoCoberturaAdicional createGetCostoCoberturaAdicional() {
-        return new GetCostoCoberturaAdicional();
-    }
-
-    /**
-     * Create an instance of {@link InputLimitesCapitalVO }
-     * 
-     */
-    public InputLimitesCapitalVO createInputLimitesCapitalVO() {
-        return new InputLimitesCapitalVO();
-    }
-
-    /**
-     * Create an instance of {@link GetProyeccionesVidAhorroFlexVOResponse }
-     * 
-     */
-    public GetProyeccionesVidAhorroFlexVOResponse createGetProyeccionesVidAhorroFlexVOResponse() {
-        return new GetProyeccionesVidAhorroFlexVOResponse();
-    }
-
-    /**
-     * Create an instance of {@link CondicionadoVO }
-     * 
-     */
-    public CondicionadoVO createCondicionadoVO() {
-        return new CondicionadoVO();
-    }
-
-    /**
-     * Create an instance of {@link LimitesInyeccionVO }
-     * 
-     */
-    public LimitesInyeccionVO createLimitesInyeccionVO() {
-        return new LimitesInyeccionVO();
-    }
-
-    /**
-     * Create an instance of {@link OutputCostoCoberturaAdicionalVO }
-     * 
-     */
-    public OutputCostoCoberturaAdicionalVO createOutputCostoCoberturaAdicionalVO() {
-        return new OutputCostoCoberturaAdicionalVO();
-    }
-
-    /**
-     * Create an instance of {@link Contratanteci }
-     * 
-     */
-    public Contratanteci createContratanteci() {
-        return new Contratanteci();
-    }
-
-    /**
-     * Create an instance of {@link OutputWSProyeccionVidAhorroFlex }
-     * 
-     */
-    public OutputWSProyeccionVidAhorroFlex createOutputWSProyeccionVidAhorroFlex() {
-        return new OutputWSProyeccionVidAhorroFlex();
-    }
-
-    /**
-     * Create an instance of {@link UsoInternoci }
-     * 
-     */
-    public UsoInternoci createUsoInternoci() {
-        return new UsoInternoci();
-    }
-
-    /**
-     * Create an instance of {@link AntecedentesVO }
-     * 
-     */
-    public AntecedentesVO createAntecedentesVO() {
-        return new AntecedentesVO();
-    }
-
-    /**
-     * Create an instance of {@link OutputProyeccionesVO.Coberturas }
-     * 
-     */
-    public OutputProyeccionesVO.Coberturas createOutputProyeccionesVOCoberturas() {
-        return new OutputProyeccionesVO.Coberturas();
-    }
-
-    /**
-     * Create an instance of {@link OutputTipoProyeccionVO }
-     * 
-     */
-    public OutputTipoProyeccionVO createOutputTipoProyeccionVO() {
-        return new OutputTipoProyeccionVO();
-    }
-
-    /**
-     * Create an instance of {@link TestResponse }
-     * 
-     */
-    public TestResponse createTestResponse() {
-        return new TestResponse();
-    }
-
-    /**
-     * Create an instance of {@link Proyeccionci }
-     * 
-     */
-    public Proyeccionci createProyeccionci() {
-        return new Proyeccionci();
-    }
-
-    /**
-     * Create an instance of {@link OutputCotizacionInternet }
-     * 
-     */
-    public OutputCotizacionInternet createOutputCotizacionInternet() {
-        return new OutputCotizacionInternet();
-    }
-
-    /**
-     * Create an instance of {@link PromRentFondoVO }
-     * 
-     */
-    public PromRentFondoVO createPromRentFondoVO() {
-        return new PromRentFondoVO();
-    }
-
-    /**
-     * Create an instance of {@link GetCostoCoberturaPrincipal }
-     * 
-     */
-    public GetCostoCoberturaPrincipal createGetCostoCoberturaPrincipal() {
-        return new GetCostoCoberturaPrincipal();
     }
 
     /**
@@ -492,203 +94,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EmailVO }
+     * Create an instance of {@link ListFamiliaresVO }
      * 
      */
-    public EmailVO createEmailVO() {
-        return new EmailVO();
+    public ListFamiliaresVO createListFamiliaresVO() {
+        return new ListFamiliaresVO();
     }
 
     /**
-     * Create an instance of {@link GetRentabilidadPromedioPorFondoResponse }
+     * Create an instance of {@link InputCondicionadoVO }
      * 
      */
-    public GetRentabilidadPromedioPorFondoResponse createGetRentabilidadPromedioPorFondoResponse() {
-        return new GetRentabilidadPromedioPorFondoResponse();
-    }
-
-    /**
-     * Create an instance of {@link OutputEmailCotizacionInternetVO }
-     * 
-     */
-    public OutputEmailCotizacionInternetVO createOutputEmailCotizacionInternetVO() {
-        return new OutputEmailCotizacionInternetVO();
-    }
-
-    /**
-     * Create an instance of {@link OutputProyeccionesVO }
-     * 
-     */
-    public OutputProyeccionesVO createOutputProyeccionesVO() {
-        return new OutputProyeccionesVO();
-    }
-
-    /**
-     * Create an instance of {@link GetDatosEmailCotizacionInternetResponse }
-     * 
-     */
-    public GetDatosEmailCotizacionInternetResponse createGetDatosEmailCotizacionInternetResponse() {
-        return new GetDatosEmailCotizacionInternetResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetNombreCondicionado }
-     * 
-     */
-    public GetNombreCondicionado createGetNombreCondicionado() {
-        return new GetNombreCondicionado();
-    }
-
-    /**
-     * Create an instance of {@link OutputPromRentFondoVO }
-     * 
-     */
-    public OutputPromRentFondoVO createOutputPromRentFondoVO() {
-        return new OutputPromRentFondoVO();
-    }
-
-    /**
-     * Create an instance of {@link GetProyeccionesVidAhorro57BisVOResponse }
-     * 
-     */
-    public GetProyeccionesVidAhorro57BisVOResponse createGetProyeccionesVidAhorro57BisVOResponse() {
-        return new GetProyeccionesVidAhorro57BisVOResponse();
-    }
-
-    /**
-     * Create an instance of {@link Edadci }
-     * 
-     */
-    public Edadci createEdadci() {
-        return new Edadci();
-    }
-
-    /**
-     * Create an instance of {@link InputCotizacionInternet }
-     * 
-     */
-    public InputCotizacionInternet createInputCotizacionInternet() {
-        return new InputCotizacionInternet();
-    }
-
-    /**
-     * Create an instance of {@link OutputWSProyeccionVidAhorro100 }
-     * 
-     */
-    public OutputWSProyeccionVidAhorro100 createOutputWSProyeccionVidAhorro100() {
-        return new OutputWSProyeccionVidAhorro100();
-    }
-
-    /**
-     * Create an instance of {@link GetMontosInyeccionResponse }
-     * 
-     */
-    public GetMontosInyeccionResponse createGetMontosInyeccionResponse() {
-        return new GetMontosInyeccionResponse();
-    }
-
-    /**
-     * Create an instance of {@link InputPromRentFondoVO }
-     * 
-     */
-    public InputPromRentFondoVO createInputPromRentFondoVO() {
-        return new InputPromRentFondoVO();
-    }
-
-    /**
-     * Create an instance of {@link Cobertura }
-     * 
-     */
-    public Cobertura createCobertura() {
-        return new Cobertura();
-    }
-
-    /**
-     * Create an instance of {@link OutputRentabilidadPromVO }
-     * 
-     */
-    public OutputRentabilidadPromVO createOutputRentabilidadPromVO() {
-        return new OutputRentabilidadPromVO();
-    }
-
-    /**
-     * Create an instance of {@link GetProyeccionesVidAhorro57BisVO }
-     * 
-     */
-    public GetProyeccionesVidAhorro57BisVO createGetProyeccionesVidAhorro57BisVO() {
-        return new GetProyeccionesVidAhorro57BisVO();
-    }
-
-    /**
-     * Create an instance of {@link GetProyeccionesFlexInvGlodVO }
-     * 
-     */
-    public GetProyeccionesFlexInvGlodVO createGetProyeccionesFlexInvGlodVO() {
-        return new GetProyeccionesFlexInvGlodVO();
-    }
-
-    /**
-     * Create an instance of {@link GetCostoCoberturaAdicionalResponse }
-     * 
-     */
-    public GetCostoCoberturaAdicionalResponse createGetCostoCoberturaAdicionalResponse() {
-        return new GetCostoCoberturaAdicionalResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetCotizacionInternet }
-     * 
-     */
-    public GetCotizacionInternet createGetCotizacionInternet() {
-        return new GetCotizacionInternet();
-    }
-
-    /**
-     * Create an instance of {@link Cotizacionci }
-     * 
-     */
-    public Cotizacionci createCotizacionci() {
-        return new Cotizacionci();
-    }
-
-    /**
-     * Create an instance of {@link GetProyeccionesFlexInvGlodVOResponse }
-     * 
-     */
-    public GetProyeccionesFlexInvGlodVOResponse createGetProyeccionesFlexInvGlodVOResponse() {
-        return new GetProyeccionesFlexInvGlodVOResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetCotizacionInternetResponse }
-     * 
-     */
-    public GetCotizacionInternetResponse createGetCotizacionInternetResponse() {
-        return new GetCotizacionInternetResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetRentabilidadPromedio }
-     * 
-     */
-    public GetRentabilidadPromedio createGetRentabilidadPromedio() {
-        return new GetRentabilidadPromedio();
-    }
-
-    /**
-     * Create an instance of {@link EleccionesVO }
-     * 
-     */
-    public EleccionesVO createEleccionesVO() {
-        return new EleccionesVO();
-    }
-
-    /**
-     * Create an instance of {@link AsegurableVO }
-     * 
-     */
-    public AsegurableVO createAsegurableVO() {
-        return new AsegurableVO();
+    public InputCondicionadoVO createInputCondicionadoVO() {
+        return new InputCondicionadoVO();
     }
 
     /**
@@ -700,11 +118,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link OutputWSProyeccionFlexInvGlodVO }
+     * Create an instance of {@link GetProyeccionesVOResponse }
      * 
      */
-    public OutputWSProyeccionFlexInvGlodVO createOutputWSProyeccionFlexInvGlodVO() {
-        return new OutputWSProyeccionFlexInvGlodVO();
+    public GetProyeccionesVOResponse createGetProyeccionesVOResponse() {
+        return new GetProyeccionesVOResponse();
+    }
+
+    /**
+     * Create an instance of {@link CostoCoberturaAdicionalVO }
+     * 
+     */
+    public CostoCoberturaAdicionalVO createCostoCoberturaAdicionalVO() {
+        return new CostoCoberturaAdicionalVO();
+    }
+
+    /**
+     * Create an instance of {@link TestResponse }
+     * 
+     */
+    public TestResponse createTestResponse() {
+        return new TestResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetTipoProyeccionVO }
+     * 
+     */
+    public GetTipoProyeccionVO createGetTipoProyeccionVO() {
+        return new GetTipoProyeccionVO();
+    }
+
+    /**
+     * Create an instance of {@link CondicionadoVO }
+     * 
+     */
+    public CondicionadoVO createCondicionadoVO() {
+        return new CondicionadoVO();
     }
 
     /**
@@ -716,27 +166,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InputProyeccionesVO }
+     * Create an instance of {@link EleccionesVO }
      * 
      */
-    public InputProyeccionesVO createInputProyeccionesVO() {
-        return new InputProyeccionesVO();
+    public EleccionesVO createEleccionesVO() {
+        return new EleccionesVO();
     }
 
     /**
-     * Create an instance of {@link GetProyeccionesVOResponse }
+     * Create an instance of {@link InputCostoCoberturaAdicionalVO }
      * 
      */
-    public GetProyeccionesVOResponse createGetProyeccionesVOResponse() {
-        return new GetProyeccionesVOResponse();
+    public InputCostoCoberturaAdicionalVO createInputCostoCoberturaAdicionalVO() {
+        return new InputCostoCoberturaAdicionalVO();
     }
 
     /**
-     * Create an instance of {@link OutputLimitesCapitalVO }
+     * Create an instance of {@link Cotizacionci }
      * 
      */
-    public OutputLimitesCapitalVO createOutputLimitesCapitalVO() {
-        return new OutputLimitesCapitalVO();
+    public Cotizacionci createCotizacionci() {
+        return new Cotizacionci();
+    }
+
+    /**
+     * Create an instance of {@link ViaCobroci }
+     * 
+     */
+    public ViaCobroci createViaCobroci() {
+        return new ViaCobroci();
+    }
+
+    /**
+     * Create an instance of {@link OutputWSProyeccionFlexInvGlodVO }
+     * 
+     */
+    public OutputWSProyeccionFlexInvGlodVO createOutputWSProyeccionFlexInvGlodVO() {
+        return new OutputWSProyeccionFlexInvGlodVO();
     }
 
     /**
@@ -748,11 +214,579 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link OutputWSProyeccionVidAhorroFlex }
+     * 
+     */
+    public OutputWSProyeccionVidAhorroFlex createOutputWSProyeccionVidAhorroFlex() {
+        return new OutputWSProyeccionVidAhorroFlex();
+    }
+
+    /**
+     * Create an instance of {@link InputLimitesCapitalVO }
+     * 
+     */
+    public InputLimitesCapitalVO createInputLimitesCapitalVO() {
+        return new InputLimitesCapitalVO();
+    }
+
+    /**
+     * Create an instance of {@link OutputMontosInyeccionVO }
+     * 
+     */
+    public OutputMontosInyeccionVO createOutputMontosInyeccionVO() {
+        return new OutputMontosInyeccionVO();
+    }
+
+    /**
+     * Create an instance of {@link GetProyeccionesVidAhorro100VOResponse }
+     * 
+     */
+    public GetProyeccionesVidAhorro100VOResponse createGetProyeccionesVidAhorro100VOResponse() {
+        return new GetProyeccionesVidAhorro100VOResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetCostoCoberturaPrincipal }
+     * 
+     */
+    public GetCostoCoberturaPrincipal createGetCostoCoberturaPrincipal() {
+        return new GetCostoCoberturaPrincipal();
+    }
+
+    /**
+     * Create an instance of {@link GetDatosPlanCotizacionInternet }
+     * 
+     */
+    public GetDatosPlanCotizacionInternet createGetDatosPlanCotizacionInternet() {
+        return new GetDatosPlanCotizacionInternet();
+    }
+
+    /**
+     * Create an instance of {@link GetNombreCondicionado }
+     * 
+     */
+    public GetNombreCondicionado createGetNombreCondicionado() {
+        return new GetNombreCondicionado();
+    }
+
+    /**
+     * Create an instance of {@link AsegurableVO }
+     * 
+     */
+    public AsegurableVO createAsegurableVO() {
+        return new AsegurableVO();
+    }
+
+    /**
+     * Create an instance of {@link FamiliarVO }
+     * 
+     */
+    public FamiliarVO createFamiliarVO() {
+        return new FamiliarVO();
+    }
+
+    /**
+     * Create an instance of {@link OutputProyeccionesVO.Coberturas }
+     * 
+     */
+    public OutputProyeccionesVO.Coberturas createOutputProyeccionesVOCoberturas() {
+        return new OutputProyeccionesVO.Coberturas();
+    }
+
+    /**
+     * Create an instance of {@link GetProyeccionesVidAhorroFlexVO }
+     * 
+     */
+    public GetProyeccionesVidAhorroFlexVO createGetProyeccionesVidAhorroFlexVO() {
+        return new GetProyeccionesVidAhorroFlexVO();
+    }
+
+    /**
+     * Create an instance of {@link OutputWSProyeccionVidAhorro57Bis }
+     * 
+     */
+    public OutputWSProyeccionVidAhorro57Bis createOutputWSProyeccionVidAhorro57Bis() {
+        return new OutputWSProyeccionVidAhorro57Bis();
+    }
+
+    /**
+     * Create an instance of {@link CapitalVO }
+     * 
+     */
+    public CapitalVO createCapitalVO() {
+        return new CapitalVO();
+    }
+
+    /**
+     * Create an instance of {@link OutputCotizacionInternet }
+     * 
+     */
+    public OutputCotizacionInternet createOutputCotizacionInternet() {
+        return new OutputCotizacionInternet();
+    }
+
+    /**
+     * Create an instance of {@link LimitesInyeccionVO }
+     * 
+     */
+    public LimitesInyeccionVO createLimitesInyeccionVO() {
+        return new LimitesInyeccionVO();
+    }
+
+    /**
+     * Create an instance of {@link GetMontosInyeccionResponse }
+     * 
+     */
+    public GetMontosInyeccionResponse createGetMontosInyeccionResponse() {
+        return new GetMontosInyeccionResponse();
+    }
+
+    /**
+     * Create an instance of {@link Asegurableci }
+     * 
+     */
+    public Asegurableci createAsegurableci() {
+        return new Asegurableci();
+    }
+
+    /**
+     * Create an instance of {@link EmailVO }
+     * 
+     */
+    public EmailVO createEmailVO() {
+        return new EmailVO();
+    }
+
+    /**
+     * Create an instance of {@link Beneficiarioci }
+     * 
+     */
+    public Beneficiarioci createBeneficiarioci() {
+        return new Beneficiarioci();
+    }
+
+    /**
+     * Create an instance of {@link GetProyeccionesFlexInvGlodVO }
+     * 
+     */
+    public GetProyeccionesFlexInvGlodVO createGetProyeccionesFlexInvGlodVO() {
+        return new GetProyeccionesFlexInvGlodVO();
+    }
+
+    /**
+     * Create an instance of {@link PromRentFondoVO }
+     * 
+     */
+    public PromRentFondoVO createPromRentFondoVO() {
+        return new PromRentFondoVO();
+    }
+
+    /**
+     * Create an instance of {@link GetCotizacionInternet }
+     * 
+     */
+    public GetCotizacionInternet createGetCotizacionInternet() {
+        return new GetCotizacionInternet();
+    }
+
+    /**
+     * Create an instance of {@link DatosSimulacionFlexInvGoldVO }
+     * 
+     */
+    public DatosSimulacionFlexInvGoldVO createDatosSimulacionFlexInvGoldVO() {
+        return new DatosSimulacionFlexInvGoldVO();
+    }
+
+    /**
+     * Create an instance of {@link InputRentabilidadPromVO }
+     * 
+     */
+    public InputRentabilidadPromVO createInputRentabilidadPromVO() {
+        return new InputRentabilidadPromVO();
+    }
+
+    /**
+     * Create an instance of {@link GetCostoCoberturaAdicional }
+     * 
+     */
+    public GetCostoCoberturaAdicional createGetCostoCoberturaAdicional() {
+        return new GetCostoCoberturaAdicional();
+    }
+
+    /**
+     * Create an instance of {@link GetProyeccionesVidAhorro57BisVO }
+     * 
+     */
+    public GetProyeccionesVidAhorro57BisVO createGetProyeccionesVidAhorro57BisVO() {
+        return new GetProyeccionesVidAhorro57BisVO();
+    }
+
+    /**
+     * Create an instance of {@link GetCostoCoberturaPrincipalResponse }
+     * 
+     */
+    public GetCostoCoberturaPrincipalResponse createGetCostoCoberturaPrincipalResponse() {
+        return new GetCostoCoberturaPrincipalResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetProyeccionesVidAhorroFlexVOResponse }
+     * 
+     */
+    public GetProyeccionesVidAhorroFlexVOResponse createGetProyeccionesVidAhorroFlexVOResponse() {
+        return new GetProyeccionesVidAhorroFlexVOResponse();
+    }
+
+    /**
      * Create an instance of {@link GetDatosEmailCotizacionInternet }
      * 
      */
     public GetDatosEmailCotizacionInternet createGetDatosEmailCotizacionInternet() {
         return new GetDatosEmailCotizacionInternet();
+    }
+
+    /**
+     * Create an instance of {@link InputProyeccionesVO }
+     * 
+     */
+    public InputProyeccionesVO createInputProyeccionesVO() {
+        return new InputProyeccionesVO();
+    }
+
+    /**
+     * Create an instance of {@link GetRentabilidadPromedioPorFondo }
+     * 
+     */
+    public GetRentabilidadPromedioPorFondo createGetRentabilidadPromedioPorFondo() {
+        return new GetRentabilidadPromedioPorFondo();
+    }
+
+    /**
+     * Create an instance of {@link OutputProyeccionesVO }
+     * 
+     */
+    public OutputProyeccionesVO createOutputProyeccionesVO() {
+        return new OutputProyeccionesVO();
+    }
+
+    /**
+     * Create an instance of {@link GetLimitesCapitalResponse }
+     * 
+     */
+    public GetLimitesCapitalResponse createGetLimitesCapitalResponse() {
+        return new GetLimitesCapitalResponse();
+    }
+
+    /**
+     * Create an instance of {@link Contratanteci }
+     * 
+     */
+    public Contratanteci createContratanteci() {
+        return new Contratanteci();
+    }
+
+    /**
+     * Create an instance of {@link OutputRentabilidadPromVO }
+     * 
+     */
+    public OutputRentabilidadPromVO createOutputRentabilidadPromVO() {
+        return new OutputRentabilidadPromVO();
+    }
+
+    /**
+     * Create an instance of {@link Proyeccionci }
+     * 
+     */
+    public Proyeccionci createProyeccionci() {
+        return new Proyeccionci();
+    }
+
+    /**
+     * Create an instance of {@link OutputPlanVO }
+     * 
+     */
+    public OutputPlanVO createOutputPlanVO() {
+        return new OutputPlanVO();
+    }
+
+    /**
+     * Create an instance of {@link GetProyeccionesVO }
+     * 
+     */
+    public GetProyeccionesVO createGetProyeccionesVO() {
+        return new GetProyeccionesVO();
+    }
+
+    /**
+     * Create an instance of {@link OutputCostoCoberturaPrincipalVO }
+     * 
+     */
+    public OutputCostoCoberturaPrincipalVO createOutputCostoCoberturaPrincipalVO() {
+        return new OutputCostoCoberturaPrincipalVO();
+    }
+
+    /**
+     * Create an instance of {@link OutputLimitesCapitalVO }
+     * 
+     */
+    public OutputLimitesCapitalVO createOutputLimitesCapitalVO() {
+        return new OutputLimitesCapitalVO();
+    }
+
+    /**
+     * Create an instance of {@link GetMontosInyeccion }
+     * 
+     */
+    public GetMontosInyeccion createGetMontosInyeccion() {
+        return new GetMontosInyeccion();
+    }
+
+    /**
+     * Create an instance of {@link InputPromRentFondoVO }
+     * 
+     */
+    public InputPromRentFondoVO createInputPromRentFondoVO() {
+        return new InputPromRentFondoVO();
+    }
+
+    /**
+     * Create an instance of {@link GetRentabilidadPromedio }
+     * 
+     */
+    public GetRentabilidadPromedio createGetRentabilidadPromedio() {
+        return new GetRentabilidadPromedio();
+    }
+
+    /**
+     * Create an instance of {@link GetProyeccionesVidAhorro57BisVOResponse }
+     * 
+     */
+    public GetProyeccionesVidAhorro57BisVOResponse createGetProyeccionesVidAhorro57BisVOResponse() {
+        return new GetProyeccionesVidAhorro57BisVOResponse();
+    }
+
+    /**
+     * Create an instance of {@link PlanVO }
+     * 
+     */
+    public PlanVO createPlanVO() {
+        return new PlanVO();
+    }
+
+    /**
+     * Create an instance of {@link OutputWSProyeccionVidAhorro100 }
+     * 
+     */
+    public OutputWSProyeccionVidAhorro100 createOutputWSProyeccionVidAhorro100() {
+        return new OutputWSProyeccionVidAhorro100();
+    }
+
+    /**
+     * Create an instance of {@link DatosSimulacionVidAhorroFlexVO }
+     * 
+     */
+    public DatosSimulacionVidAhorroFlexVO createDatosSimulacionVidAhorroFlexVO() {
+        return new DatosSimulacionVidAhorroFlexVO();
+    }
+
+    /**
+     * Create an instance of {@link GetDatosPlanCotizacionInternetResponse }
+     * 
+     */
+    public GetDatosPlanCotizacionInternetResponse createGetDatosPlanCotizacionInternetResponse() {
+        return new GetDatosPlanCotizacionInternetResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetRentabilidadPromedioPorFondoResponse }
+     * 
+     */
+    public GetRentabilidadPromedioPorFondoResponse createGetRentabilidadPromedioPorFondoResponse() {
+        return new GetRentabilidadPromedioPorFondoResponse();
+    }
+
+    /**
+     * Create an instance of {@link OutputPromRentFondoVO }
+     * 
+     */
+    public OutputPromRentFondoVO createOutputPromRentFondoVO() {
+        return new OutputPromRentFondoVO();
+    }
+
+    /**
+     * Create an instance of {@link OutputEmailCotizacionInternetVO }
+     * 
+     */
+    public OutputEmailCotizacionInternetVO createOutputEmailCotizacionInternetVO() {
+        return new OutputEmailCotizacionInternetVO();
+    }
+
+    /**
+     * Create an instance of {@link GetProyeccionesFlexInvGlodVOResponse }
+     * 
+     */
+    public GetProyeccionesFlexInvGlodVOResponse createGetProyeccionesFlexInvGlodVOResponse() {
+        return new GetProyeccionesFlexInvGlodVOResponse();
+    }
+
+    /**
+     * Create an instance of {@link DatosSimulacionVidAhorro57BisVO }
+     * 
+     */
+    public DatosSimulacionVidAhorro57BisVO createDatosSimulacionVidAhorro57BisVO() {
+        return new DatosSimulacionVidAhorro57BisVO();
+    }
+
+    /**
+     * Create an instance of {@link GetCotizacionInternetResponse }
+     * 
+     */
+    public GetCotizacionInternetResponse createGetCotizacionInternetResponse() {
+        return new GetCotizacionInternetResponse();
+    }
+
+    /**
+     * Create an instance of {@link DatosSimulacionVidAhorro100VO }
+     * 
+     */
+    public DatosSimulacionVidAhorro100VO createDatosSimulacionVidAhorro100VO() {
+        return new DatosSimulacionVidAhorro100VO();
+    }
+
+    /**
+     * Create an instance of {@link OutputTipoProyeccionVO }
+     * 
+     */
+    public OutputTipoProyeccionVO createOutputTipoProyeccionVO() {
+        return new OutputTipoProyeccionVO();
+    }
+
+    /**
+     * Create an instance of {@link Edadci }
+     * 
+     */
+    public Edadci createEdadci() {
+        return new Edadci();
+    }
+
+    /**
+     * Create an instance of {@link GetProyeccionesVidAhorro100VO }
+     * 
+     */
+    public GetProyeccionesVidAhorro100VO createGetProyeccionesVidAhorro100VO() {
+        return new GetProyeccionesVidAhorro100VO();
+    }
+
+    /**
+     * Create an instance of {@link Test }
+     * 
+     */
+    public Test createTest() {
+        return new Test();
+    }
+
+    /**
+     * Create an instance of {@link UsoInternoci }
+     * 
+     */
+    public UsoInternoci createUsoInternoci() {
+        return new UsoInternoci();
+    }
+
+    /**
+     * Create an instance of {@link CoberturaVO }
+     * 
+     */
+    public CoberturaVO createCoberturaVO() {
+        return new CoberturaVO();
+    }
+
+    /**
+     * Create an instance of {@link InputCotizacionInternet }
+     * 
+     */
+    public InputCotizacionInternet createInputCotizacionInternet() {
+        return new InputCotizacionInternet();
+    }
+
+    /**
+     * Create an instance of {@link OutputCostoCoberturaAdicionalVO }
+     * 
+     */
+    public OutputCostoCoberturaAdicionalVO createOutputCostoCoberturaAdicionalVO() {
+        return new OutputCostoCoberturaAdicionalVO();
+    }
+
+    /**
+     * Create an instance of {@link Cobertura }
+     * 
+     */
+    public Cobertura createCobertura() {
+        return new Cobertura();
+    }
+
+    /**
+     * Create an instance of {@link GetRentabilidadPromedioResponse }
+     * 
+     */
+    public GetRentabilidadPromedioResponse createGetRentabilidadPromedioResponse() {
+        return new GetRentabilidadPromedioResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetDatosEmailCotizacionInternetResponse }
+     * 
+     */
+    public GetDatosEmailCotizacionInternetResponse createGetDatosEmailCotizacionInternetResponse() {
+        return new GetDatosEmailCotizacionInternetResponse();
+    }
+
+    /**
+     * Create an instance of {@link OutputCondicionadoVO }
+     * 
+     */
+    public OutputCondicionadoVO createOutputCondicionadoVO() {
+        return new OutputCondicionadoVO();
+    }
+
+    /**
+     * Create an instance of {@link GetNombreCondicionadoResponse }
+     * 
+     */
+    public GetNombreCondicionadoResponse createGetNombreCondicionadoResponse() {
+        return new GetNombreCondicionadoResponse();
+    }
+
+    /**
+     * Create an instance of {@link InputCostoCoberturaPrincipalVO }
+     * 
+     */
+    public InputCostoCoberturaPrincipalVO createInputCostoCoberturaPrincipalVO() {
+        return new InputCostoCoberturaPrincipalVO();
+    }
+
+    /**
+     * Create an instance of {@link GetCostoCoberturaAdicionalResponse }
+     * 
+     */
+    public GetCostoCoberturaAdicionalResponse createGetCostoCoberturaAdicionalResponse() {
+        return new GetCostoCoberturaAdicionalResponse();
+    }
+
+    /**
+     * Create an instance of {@link AntecedentesVO }
+     * 
+     */
+    public AntecedentesVO createAntecedentesVO() {
+        return new AntecedentesVO();
+    }
+
+    /**
+     * Create an instance of {@link RentabilidadInversionci }
+     * 
+     */
+    public RentabilidadInversionci createRentabilidadInversionci() {
+        return new RentabilidadInversionci();
     }
 
     /**
@@ -807,6 +841,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://cnsv.cl/", name = "getRentabilidadPromedio")
     public JAXBElement<GetRentabilidadPromedio> createGetRentabilidadPromedio(GetRentabilidadPromedio value) {
         return new JAXBElement<GetRentabilidadPromedio>(_GetRentabilidadPromedio_QNAME, GetRentabilidadPromedio.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDatosPlanCotizacionInternetResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cnsv.cl/", name = "getDatosPlanCotizacionInternetResponse")
+    public JAXBElement<GetDatosPlanCotizacionInternetResponse> createGetDatosPlanCotizacionInternetResponse(GetDatosPlanCotizacionInternetResponse value) {
+        return new JAXBElement<GetDatosPlanCotizacionInternetResponse>(_GetDatosPlanCotizacionInternetResponse_QNAME, GetDatosPlanCotizacionInternetResponse.class, null, value);
     }
 
     /**
@@ -879,6 +922,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://cnsv.cl/", name = "getCotizacionInternetResponse")
     public JAXBElement<GetCotizacionInternetResponse> createGetCotizacionInternetResponse(GetCotizacionInternetResponse value) {
         return new JAXBElement<GetCotizacionInternetResponse>(_GetCotizacionInternetResponse_QNAME, GetCotizacionInternetResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDatosPlanCotizacionInternet }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cnsv.cl/", name = "getDatosPlanCotizacionInternet")
+    public JAXBElement<GetDatosPlanCotizacionInternet> createGetDatosPlanCotizacionInternet(GetDatosPlanCotizacionInternet value) {
+        return new JAXBElement<GetDatosPlanCotizacionInternet>(_GetDatosPlanCotizacionInternet_QNAME, GetDatosPlanCotizacionInternet.class, null, value);
     }
 
     /**

@@ -4,6 +4,8 @@
 
 package cl.cnsv.wsreporteproyeccion.vo;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /** 
  * Clase que integra informacion de parametros de entrada para obtener el
  * documento de proyeccion.
@@ -11,6 +13,7 @@ package cl.cnsv.wsreporteproyeccion.vo;
  * fecha: 02-08-2016 
  * @author exitcs6 
  */
+@XmlRootElement
 public class InputObtenerProyeccionVO {
 
     private String numeroPoliza;

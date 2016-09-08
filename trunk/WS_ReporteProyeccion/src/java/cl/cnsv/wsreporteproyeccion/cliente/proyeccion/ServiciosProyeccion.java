@@ -27,34 +27,6 @@ public interface ServiciosProyeccion {
      * 
      * @param transaccion
      * @return
-     *     returns cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorroFlex
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerProyeccionVidAhorroFlex", targetNamespace = "http://ws.proyeccion.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ObtenerProyeccionVidAhorroFlex")
-    @ResponseWrapper(localName = "obtenerProyeccionVidAhorroFlexResponse", targetNamespace = "http://ws.proyeccion.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ObtenerProyeccionVidAhorroFlexResponse")
-    public RespuestaVidAhorroFlex obtenerProyeccionVidAhorroFlex(
-        @WebParam(name = "transaccion", targetNamespace = "")
-        TransaccionVidAhorroFlex transaccion);
-
-    /**
-     * 
-     * @param transaccion
-     * @return
-     *     returns cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorro100
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerProyeccionVidAhorro100", targetNamespace = "http://ws.proyeccion.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ObtenerProyeccionVidAhorro100")
-    @ResponseWrapper(localName = "obtenerProyeccionVidAhorro100Response", targetNamespace = "http://ws.proyeccion.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ObtenerProyeccionVidAhorro100Response")
-    public RespuestaVidAhorro100 obtenerProyeccionVidAhorro100(
-        @WebParam(name = "transaccion", targetNamespace = "")
-        TransaccionVidAhorro100 transaccion);
-
-    /**
-     * 
-     * @param transaccion
-     * @return
      *     returns cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorro57Bis
      */
     @WebMethod
@@ -78,5 +50,47 @@ public interface ServiciosProyeccion {
     public RespuestaFlexInvGold obtenerProyeccionFlexInvGold(
         @WebParam(name = "transaccion", targetNamespace = "")
         TransaccionFlexInvGold transaccion);
+
+    /**
+     * 
+     * @param transaccion
+     * @return
+     *     returns cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaAhorroInternet
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerProyeccionAhorroInternet", targetNamespace = "http://ws.proyeccion.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ObtenerProyeccionAhorroInternet")
+    @ResponseWrapper(localName = "obtenerProyeccionAhorroInternetResponse", targetNamespace = "http://ws.proyeccion.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ObtenerProyeccionAhorroInternetResponse")
+    public RespuestaAhorroInternet obtenerProyeccionAhorroInternet(
+        @WebParam(name = "transaccion", targetNamespace = "")
+        TransaccionAhorroInternet transaccion);
+
+    /**
+     * 
+     * @param transaccion
+     * @return
+     *     returns cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorroFlex
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerProyeccionVidAhorroFlex", targetNamespace = "http://ws.proyeccion.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ObtenerProyeccionVidAhorroFlex")
+    @ResponseWrapper(localName = "obtenerProyeccionVidAhorroFlexResponse", targetNamespace = "http://ws.proyeccion.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ObtenerProyeccionVidAhorroFlexResponse")
+    public RespuestaVidAhorroFlex obtenerProyeccionVidAhorroFlex(
+        @WebParam(name = "transaccion", targetNamespace = "")
+        TransaccionVidAhorroFlex transaccion);
+
+    /**
+     * 
+     * @param transaccion
+     * @return
+     *     returns cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorro100
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerProyeccionVidAhorro100", targetNamespace = "http://ws.proyeccion.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ObtenerProyeccionVidAhorro100")
+    @ResponseWrapper(localName = "obtenerProyeccionVidAhorro100Response", targetNamespace = "http://ws.proyeccion.cnsv.cl/", className = "cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ObtenerProyeccionVidAhorro100Response")
+    public RespuestaVidAhorro100 obtenerProyeccionVidAhorro100(
+        @WebParam(name = "transaccion", targetNamespace = "")
+        TransaccionVidAhorro100 transaccion);
 
 }

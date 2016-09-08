@@ -30,24 +30,29 @@ import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.InputProyeccionesVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputCondicionadoVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputCotizacionInternet;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputEmailCotizacionInternetVO;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputPlanVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputProyeccionesVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputTipoProyeccionVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionFlexInvGlodVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionVidAhorro100;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionVidAhorro57Bis;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.OutputWSProyeccionVidAhorroFlex;
+import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.PlanVO;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.Proyeccionci;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.RentabilidadInversionci;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.UsoInternoci;
 import cl.cnsv.wsreporteproyeccion.cliente.cotizadorvida.ViaCobroci;
+import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaAhorroInternet;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaFlexInvGold;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorro100;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorro57Bis;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorroFlex;
+import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ResultadoProyeccionAhorroInternet;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ResultadoProyeccionFlexInvGold;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ResultadoProyeccionVidAhorro100;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ResultadoProyeccionVidAhorro57Bis;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ResultadoProyeccionVidAhorroFlex;
+import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.TransaccionAhorroInternet;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.TransaccionFlexInvGold;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.TransaccionVidAhorro100;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.TransaccionVidAhorro57Bis;
@@ -66,6 +71,7 @@ import cl.cnsv.wsreporteproyeccion.vo.OutputVO;
 import cl.cnsv.wsreporteproyeccion.vo.ResultadoDocumentoVO;
 import com.thoughtworks.xstream.XStream;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 import javax.activation.DataHandler;
@@ -1456,6 +1462,14 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
         //</editor-fold>
 
         //<editor-fold defaultstate="collapsed" desc="Obtener datos de cotizacion internet">
+        String capitalMuerteAccidental;
+        String capitalPlan;
+        String ccAnual;
+        String fechaNacimiento;
+        String primaProyectadaMensual;
+        String tasaProyeccion;
+        String nBranch = Propiedades.getFuncProperty("codigo.ramo");
+        List<Coberturaci> coberturas;
         ClienteServicioCotizadorVida clienteCotizadorVida;
         try {
             clienteCotizadorVida = new ClienteServicioCotizadorVida();
@@ -1529,7 +1543,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             if (estadoCivil == null) {
                 estadoCivil = "";
             }
-            String fechaNacimiento = asegurable.getFechaNacimiento();
+            fechaNacimiento = asegurable.getFechaNacimiento();
             if (fechaNacimiento == null) {
                 fechaNacimiento = "";
             }
@@ -1798,7 +1812,7 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
 
             //Datos coberturas
             elemCoberturas = elemCotizacion.addElement("coberturas");
-            List<Coberturaci> coberturas = cotizacion.getCoberturas();
+            coberturas = cotizacion.getCoberturas();
             if (coberturas != null) {
                 for (Coberturaci cobertura : coberturas) {
                     Element elemCobertura = elemCoberturas.addElement("cobertura");
@@ -1902,43 +1916,6 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
                         elemCobertura.addElement("codigoSvs").setText(codigoSvs);
                     }
                 }
-
-                //Datos proyeccion - edad ahorro
-                Element elemEdadAhorro = elemProyeccion.addElement("edadahorro");
-                List<Edadci> edades = proyeccion.getEdades();
-                for (Edadci edad : edades) {
-                    Element elemEdad = elemEdadAhorro.addElement("edad");
-                    String finalAnio = edad.getFinalAnio();
-                    if (finalAnio == null) {
-                        finalAnio = "";
-                    }
-                    elemEdad.addElement("finalAnio").setText(finalAnio);
-                    String edadActuarialAhorro = edad.getEdadActuarial();
-                    if (edadActuarialAhorro == null) {
-                        edadActuarialAhorro = "";
-                    }
-                    elemEdad.addElement("edadActuarial").setText(edadActuarialAhorro);
-                    String primaAcumulada = edad.getPrimaAcumulada();
-                    if (primaAcumulada == null) {
-                        primaAcumulada = "";
-                    }
-                    elemEdad.addElement("primaAcumulada").setText(primaAcumulada);
-                    String otrosAbonos = edad.getOtrosAbonos();
-                    if (otrosAbonos == null) {
-                        otrosAbonos = "";
-                    }
-                    elemEdad.addElement("otrosAbonos").setText(otrosAbonos);
-                    String valorPoliza = edad.getValorPoliza();
-                    if (valorPoliza == null) {
-                        valorPoliza = "";
-                    }
-                    elemEdad.addElement("valorPoliza").setText(valorPoliza);
-                    String indemnizacionFallecimiento = edad.getIndemnizacionFallecimiento();
-                    if (indemnizacionFallecimiento == null) {
-                        indemnizacionFallecimiento = "";
-                    }
-                    elemEdad.addElement("indemnizacionFallecimiento").setText(indemnizacionFallecimiento);
-                }
             }
 
         } catch (Exception e) {
@@ -1951,6 +1928,132 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
             return xml;
         }
         //</editor-fold>
+        
+        //<editor-fold defaultstate="collapsed" desc="Obtener plan cotizacion internet">
+        inputCotizacionInternet = new InputCotizacionInternet();
+        inputCotizacionInternet.setIdCotizacion(nroCotizacion);
+        xmlInputCotizacionInternet = xStream.toXML(inputCotizacionInternet);
+        LOGGER.info("Llamado a getDatosPlanCotizacionInternet - cotizadorVida: \n" + xmlInputCotizacionInternet);        
+        OutputPlanVO outputPlan;
+        try {
+            outputPlan = clienteCotizadorVida.getDatosPlanCotizacionInternet(inputCotizacionInternet);
+            String xmlOutputPlan = xStream.toXML(outputPlan);
+            LOGGER.info("Respuesta de getDatosPlanCotizacionInternet - cotizadorVida: \n" + xmlOutputPlan);
+            Integer codigoOutputPlan = Integer.valueOf(outputCotizacionInternet.getCodigo());
+            if (!Integer.valueOf(Propiedades.getFuncProperty("ws.cotizadorvida.codigo.ok")).equals(codigoOutputPlan)) {
+                codigo = Propiedades.getFuncProperty("ws.cotizadorvida.error.cotizacionInternet.codigo");
+                mensaje = Propiedades.getFuncProperty("ws.cotizadorvida.error.cotizacionInternet.mensaje");
+                LOGGER.info(mensaje + ": " + outputCotizacionInternet.getMensaje());
+                elemCotizacion.addElement("codigo").addText(codigo);
+                elemCotizacion.addElement("mensaje").addText(mensaje);
+                xml = document.asXML();
+                return xml;
+            }
+        } catch (Exception e) {
+            codigo = Propiedades.getFuncProperty("ws.cotizadorvida.error.cotizacionInternet.codigo");
+            mensaje = Propiedades.getFuncProperty("ws.cotizadorvida.error.cotizacionInternet.mensaje");
+            LOGGER.error(mensaje + ": " + e.getMessage(), e);
+            elemCotizacion.addElement("codigo").addText(codigo);
+            elemCotizacion.addElement("mensaje").addText(mensaje);
+            xml = document.asXML();
+            return xml;
+        }
+        PlanVO plan = outputPlan.getPlan();
+        capitalPlan = plan.getCapitalPlan();
+        ccAnual = plan.getCostoCoberturaAnual();
+        primaProyectadaMensual = plan.getPrimaUf();
+        tasaProyeccion = plan.getTasaProyeccion();
+        
+        //Buscar capital muerte accidental dentro de las coberturas;
+        String codigoMuerteAccidental = Propiedades.getFuncProperty("codigo.muerteaccidental");
+        capitalMuerteAccidental = buscarCapitalMuerteAccidental(coberturas, codigoMuerteAccidental);        
+        //</editor-fold>
+        
+        //<editor-fold defaultstate="collapsed" desc="Obtener datos de proyeccion">
+        ClienteServiciosProyeccion clienteProyeccion;
+        try {
+            clienteProyeccion = new ClienteServiciosProyeccion();
+        } catch (Exception e) {
+            codigo = Propiedades.getFuncProperty("ws.proyeccion.error.login.codigo");
+            mensaje = Propiedades.getFuncProperty("ws.proyeccion.error.login.mensaje");
+            LOGGER.error(mensaje + ": " + e.getMessage(), e);
+            elemProyeccion.addElement("codigo").addText(codigo);
+            elemProyeccion.addElement("mensaje").addText(mensaje);
+            xml = document.asXML();
+            return xml;
+        }
+        TransaccionAhorroInternet inputAhorroInternet = new TransaccionAhorroInternet();
+        inputAhorroInternet.setCapitalMuerteAccidental(capitalMuerteAccidental);
+        inputAhorroInternet.setCapitalPlan(capitalPlan);
+        inputAhorroInternet.setCcAnual(ccAnual);
+        inputAhorroInternet.setFechaNacimiento(fechaNacimiento);
+        inputAhorroInternet.setPrimaProyectadaMensual(primaProyectadaMensual);
+        inputAhorroInternet.setTasaProyeccion(tasaProyeccion);
+        inputAhorroInternet.setNBranch(nBranch);        
+        String xmlInputAhorroInternet = xStream.toXML(inputAhorroInternet);
+        LOGGER.info("Llamado a obtenerProyeccionAhorroInternet - proyeccion: \n" + xmlInputAhorroInternet);
+        RespuestaAhorroInternet outputAhorroInternet;
+        try {
+            outputAhorroInternet = clienteProyeccion.obtenerProyeccionAhorroInternet(inputAhorroInternet);
+            String xmlOutputAhorroInternet = xStream.toXML(outputAhorroInternet);
+            LOGGER.info("Respuesta de obtenerProyeccionAhorroInternet - proyeccion: \n" + xmlOutputAhorroInternet);
+            String codigoOutputAhorroInternet = outputAhorroInternet.getCodigo();
+            if (!Propiedades.getFuncProperty("ws.proyeccion.codigo.ok").equals(codigoOutputAhorroInternet)) {
+                codigo = Propiedades.getFuncProperty("ws.proyeccion.error.proyeccionahorrointernet.codigo");
+                mensaje = Propiedades.getFuncProperty("ws.proyeccion.error.proyeccionahorrointernet.mensaje");
+                LOGGER.info(mensaje + ": " + outputAhorroInternet.getMensaje());
+                elemProyeccion.addElement("codigo").addText(codigo);
+                elemProyeccion.addElement("mensaje").addText(mensaje);
+                xml = document.asXML();
+                return xml;
+            }
+        } catch (Exception e) {
+            codigo = Propiedades.getFuncProperty("ws.proyeccion.error.proyeccionahorrointernet.codigo");
+            mensaje = Propiedades.getFuncProperty("ws.proyeccion.error.proyeccionahorrointernet.mensaje");
+            LOGGER.error(mensaje + ": " + e.getMessage(), e);
+            elemProyeccion.addElement("codigo").addText(codigo);
+            elemProyeccion.addElement("mensaje").addText(mensaje);
+            xml = document.asXML();
+            return xml;
+        }
+        
+        //Datos proyeccion - edad ahorro                
+        List<Edadci> edades = construirListaProyeccion(outputAhorroInternet);
+        Element elemEdadAhorro = elemProyeccion.addElement("edadahorro");        
+        for (Edadci edad : edades) {
+            Element elemEdad = elemEdadAhorro.addElement("edad");
+            String finalAnio = edad.getFinalAnio();
+            if (finalAnio == null) {
+                finalAnio = "";
+            }
+            elemEdad.addElement("finalAnio").setText(finalAnio);
+            String edadActuarialAhorro = edad.getEdadActuarial();
+            if (edadActuarialAhorro == null) {
+                edadActuarialAhorro = "";
+            }
+            elemEdad.addElement("edadActuarial").setText(edadActuarialAhorro);
+            String primaAcumulada = edad.getPrimaAcumulada();
+            if (primaAcumulada == null) {
+                primaAcumulada = "";
+            }
+            elemEdad.addElement("primaAcumulada").setText(primaAcumulada);
+            String otrosAbonos = edad.getOtrosAbonos();
+            if (otrosAbonos == null) {
+                otrosAbonos = "";
+            }
+            elemEdad.addElement("otrosAbonos").setText(otrosAbonos);
+            String valorPoliza = edad.getValorPoliza();
+            if (valorPoliza == null) {
+                valorPoliza = "";
+            }
+            elemEdad.addElement("valorPoliza").setText(valorPoliza);
+            String indemnizacionFallecimiento = edad.getIndemnizacionFallecimiento();
+            if (indemnizacionFallecimiento == null) {
+                indemnizacionFallecimiento = "";
+            }
+            elemEdad.addElement("indemnizacionFallecimiento").setText(indemnizacionFallecimiento);
+        }
+        //</editor-fold>
 
         //<editor-fold defaultstate="collapsed" desc="Termino">
         codigo = Propiedades.getFuncProperty("codigo.ok");
@@ -1961,5 +2064,39 @@ public class ReporteProyeccionServiceImpl implements ReporteProyeccionService {
         xml = document.asXML();
         return xml;
         //</editor-fold>
+    }
+
+    private String buscarCapitalMuerteAccidental(List<Coberturaci> coberturas, String codigoMuerteAccidental) {
+        String capitalMuerteAccidental = null;
+        for (Coberturaci cobertura : coberturas) {
+            String nCover = cobertura.getNCover();
+            if (nCover.equals(codigoMuerteAccidental)) {
+                capitalMuerteAccidental = cobertura.getCostoCobertura();
+                break;
+            }
+        }
+        return capitalMuerteAccidental;
+    }
+
+    private List<Edadci> construirListaProyeccion(RespuestaAhorroInternet outputAhorroInternet) {
+        List<Edadci> edades = new LinkedList<Edadci>();
+        List<ResultadoProyeccionAhorroInternet> resultadosProyeccion = outputAhorroInternet.getResultadosProyeccion();
+        for (ResultadoProyeccionAhorroInternet resultadoProyeccion : resultadosProyeccion) {
+            Integer edadActuarial = resultadoProyeccion.getEdadActuarial();
+            Integer finalAnnio = resultadoProyeccion.getFinalAnnio();
+            Double indemnizacionFallecimiento = resultadoProyeccion.getIndemnizacionFallecimiento();
+            Double otrosAbonos = resultadoProyeccion.getOtrosAbonos();
+            Double primaAcumulada = resultadoProyeccion.getPrimaAcumulada();
+            Double valorPoliza = resultadoProyeccion.getValorPoliza();
+            Edadci edad = new Edadci();
+            edad.setEdadActuarial(Integer.toString(edadActuarial));
+            edad.setFinalAnio(Integer.toString(finalAnnio));
+            edad.setIndemnizacionFallecimiento(Double.toString(indemnizacionFallecimiento));
+            edad.setOtrosAbonos(Double.toString(otrosAbonos));
+            edad.setPrimaAcumulada(Double.toString(primaAcumulada));
+            edad.setValorPoliza(Double.toString(valorPoliza));
+            edades.add(edad);
+        }
+        return edades;
     }
 }

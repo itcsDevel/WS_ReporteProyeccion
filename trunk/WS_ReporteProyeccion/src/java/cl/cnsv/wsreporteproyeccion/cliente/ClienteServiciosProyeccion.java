@@ -6,11 +6,13 @@
 package cl.cnsv.wsreporteproyeccion.cliente;
 
 import cl.cnsv.crypto.encryption.CryptoUtil;
+import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaAhorroInternet;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaFlexInvGold;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorro100;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorro57Bis;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.RespuestaVidAhorroFlex;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.ServiciosProyeccion;
+import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.TransaccionAhorroInternet;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.TransaccionFlexInvGold;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.TransaccionVidAhorro100;
 import cl.cnsv.wsreporteproyeccion.cliente.proyeccion.TransaccionVidAhorro57Bis;
@@ -89,5 +91,23 @@ public class ClienteServiciosProyeccion {
      */
     public RespuestaVidAhorroFlex getProyeccionVidAhorroFlex(TransaccionVidAhorroFlex input) {
         return port.obtenerProyeccionVidAhorroFlex(input);            
+    }
+    
+    /**
+     * Obtiene datos de proyeccion vida ahorro internet desde el servicio 
+     * WS_ProyeccionVidaIndividual
+     * @param input
+     * capitalMuerteAccidental,
+     * capitalPlan,
+     * ccAnual,
+     * fechaNacimiento,
+     * primaProyectadaMensual,
+     * tasaProyeccion,
+     * nBranch
+     * 
+     * @return 
+     */
+    public RespuestaAhorroInternet obtenerProyeccionAhorroInternet(TransaccionAhorroInternet input) {
+        return port.obtenerProyeccionAhorroInternet(input);
     }
 }

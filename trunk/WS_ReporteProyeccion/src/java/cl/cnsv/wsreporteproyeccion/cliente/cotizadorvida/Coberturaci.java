@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="costoCobertura" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="nombreCondicionado" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="nCover" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,7 +36,8 @@ import javax.xml.bind.annotation.XmlType;
     "codigoSvs",
     "costoCobertura",
     "nombre",
-    "nombreCondicionado"
+    "nombreCondicionado",
+    "nCover"
 })
 public class Coberturaci {
 
@@ -44,6 +46,7 @@ public class Coberturaci {
     protected String costoCobertura;
     protected String nombre;
     protected String nombreCondicionado;
+    protected String nCover;
 
     /**
      * Gets the value of the capital property.
@@ -163,6 +166,30 @@ public class Coberturaci {
      */
     public void setNombreCondicionado(String value) {
         this.nombreCondicionado = value;
+    }
+
+    /**
+     * Gets the value of the nCover property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNCover() {
+        return nCover;
+    }
+
+    /**
+     * Sets the value of the nCover property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNCover(String value) {
+        this.nCover = value;
     }
 
 }

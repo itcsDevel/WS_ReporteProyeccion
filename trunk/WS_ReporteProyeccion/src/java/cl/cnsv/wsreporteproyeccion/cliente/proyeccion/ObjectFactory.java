@@ -24,11 +24,13 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _ObtenerProyeccionAhorroInternetResponse_QNAME = new QName("http://ws.proyeccion.cnsv.cl/", "obtenerProyeccionAhorroInternetResponse");
     private final static QName _ObtenerProyeccionFlexInvGoldResponse_QNAME = new QName("http://ws.proyeccion.cnsv.cl/", "obtenerProyeccionFlexInvGoldResponse");
     private final static QName _ObtenerProyeccionVidAhorro100_QNAME = new QName("http://ws.proyeccion.cnsv.cl/", "obtenerProyeccionVidAhorro100");
     private final static QName _ObtenerProyeccionVidAhorro100Response_QNAME = new QName("http://ws.proyeccion.cnsv.cl/", "obtenerProyeccionVidAhorro100Response");
     private final static QName _ObtenerProyeccionVidAhorro57Bis_QNAME = new QName("http://ws.proyeccion.cnsv.cl/", "obtenerProyeccionVidAhorro57Bis");
     private final static QName _ObtenerProyeccionVidAhorroFlex_QNAME = new QName("http://ws.proyeccion.cnsv.cl/", "obtenerProyeccionVidAhorroFlex");
+    private final static QName _ObtenerProyeccionAhorroInternet_QNAME = new QName("http://ws.proyeccion.cnsv.cl/", "obtenerProyeccionAhorroInternet");
     private final static QName _ObtenerProyeccionVidAhorro57BisResponse_QNAME = new QName("http://ws.proyeccion.cnsv.cl/", "obtenerProyeccionVidAhorro57BisResponse");
     private final static QName _ObtenerProyeccionFlexInvGold_QNAME = new QName("http://ws.proyeccion.cnsv.cl/", "obtenerProyeccionFlexInvGold");
     private final static QName _ObtenerProyeccionVidAhorroFlexResponse_QNAME = new QName("http://ws.proyeccion.cnsv.cl/", "obtenerProyeccionVidAhorroFlexResponse");
@@ -38,6 +40,54 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link ObtenerProyeccionVidAhorro57BisResponse }
+     * 
+     */
+    public ObtenerProyeccionVidAhorro57BisResponse createObtenerProyeccionVidAhorro57BisResponse() {
+        return new ObtenerProyeccionVidAhorro57BisResponse();
+    }
+
+    /**
+     * Create an instance of {@link TransaccionVidAhorroFlex }
+     * 
+     */
+    public TransaccionVidAhorroFlex createTransaccionVidAhorroFlex() {
+        return new TransaccionVidAhorroFlex();
+    }
+
+    /**
+     * Create an instance of {@link RespuestaAhorroInternet }
+     * 
+     */
+    public RespuestaAhorroInternet createRespuestaAhorroInternet() {
+        return new RespuestaAhorroInternet();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerProyeccionAhorroInternet }
+     * 
+     */
+    public ObtenerProyeccionAhorroInternet createObtenerProyeccionAhorroInternet() {
+        return new ObtenerProyeccionAhorroInternet();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerProyeccionFlexInvGold }
+     * 
+     */
+    public ObtenerProyeccionFlexInvGold createObtenerProyeccionFlexInvGold() {
+        return new ObtenerProyeccionFlexInvGold();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerProyeccionVidAhorro100Response }
+     * 
+     */
+    public ObtenerProyeccionVidAhorro100Response createObtenerProyeccionVidAhorro100Response() {
+        return new ObtenerProyeccionVidAhorro100Response();
     }
 
     /**
@@ -57,51 +107,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Cobertura }
+     * Create an instance of {@link Asegurable }
      * 
      */
-    public Cobertura createCobertura() {
-        return new Cobertura();
+    public Asegurable createAsegurable() {
+        return new Asegurable();
     }
 
     /**
-     * Create an instance of {@link ResultadoProyeccionVidAhorro57Bis }
+     * Create an instance of {@link ObtenerProyeccionAhorroInternetResponse }
      * 
      */
-    public ResultadoProyeccionVidAhorro57Bis createResultadoProyeccionVidAhorro57Bis() {
-        return new ResultadoProyeccionVidAhorro57Bis();
-    }
-
-    /**
-     * Create an instance of {@link ObtenerProyeccionVidAhorro57BisResponse }
-     * 
-     */
-    public ObtenerProyeccionVidAhorro57BisResponse createObtenerProyeccionVidAhorro57BisResponse() {
-        return new ObtenerProyeccionVidAhorro57BisResponse();
-    }
-
-    /**
-     * Create an instance of {@link Rescate }
-     * 
-     */
-    public Rescate createRescate() {
-        return new Rescate();
-    }
-
-    /**
-     * Create an instance of {@link Familiar }
-     * 
-     */
-    public Familiar createFamiliar() {
-        return new Familiar();
-    }
-
-    /**
-     * Create an instance of {@link RespuestaVidAhorro57Bis }
-     * 
-     */
-    public RespuestaVidAhorro57Bis createRespuestaVidAhorro57Bis() {
-        return new RespuestaVidAhorro57Bis();
+    public ObtenerProyeccionAhorroInternetResponse createObtenerProyeccionAhorroInternetResponse() {
+        return new ObtenerProyeccionAhorroInternetResponse();
     }
 
     /**
@@ -113,83 +131,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ObtenerProyeccionVidAhorroFlex }
+     * Create an instance of {@link RespuestaFlexInvGold }
      * 
      */
-    public ObtenerProyeccionVidAhorroFlex createObtenerProyeccionVidAhorroFlex() {
-        return new ObtenerProyeccionVidAhorroFlex();
-    }
-
-    /**
-     * Create an instance of {@link ResultadoProyeccionVidAhorroFlex }
-     * 
-     */
-    public ResultadoProyeccionVidAhorroFlex createResultadoProyeccionVidAhorroFlex() {
-        return new ResultadoProyeccionVidAhorroFlex();
-    }
-
-    /**
-     * Create an instance of {@link Asegurable }
-     * 
-     */
-    public Asegurable createAsegurable() {
-        return new Asegurable();
-    }
-
-    /**
-     * Create an instance of {@link ResultadoProyeccionVidAhorro100 }
-     * 
-     */
-    public ResultadoProyeccionVidAhorro100 createResultadoProyeccionVidAhorro100() {
-        return new ResultadoProyeccionVidAhorro100();
-    }
-
-    /**
-     * Create an instance of {@link TransaccionFlexInvGold }
-     * 
-     */
-    public TransaccionFlexInvGold createTransaccionFlexInvGold() {
-        return new TransaccionFlexInvGold();
-    }
-
-    /**
-     * Create an instance of {@link TransaccionVidAhorro100 }
-     * 
-     */
-    public TransaccionVidAhorro100 createTransaccionVidAhorro100() {
-        return new TransaccionVidAhorro100();
-    }
-
-    /**
-     * Create an instance of {@link Inyeccion }
-     * 
-     */
-    public Inyeccion createInyeccion() {
-        return new Inyeccion();
-    }
-
-    /**
-     * Create an instance of {@link DatosSimulacionVidAhorro100 }
-     * 
-     */
-    public DatosSimulacionVidAhorro100 createDatosSimulacionVidAhorro100() {
-        return new DatosSimulacionVidAhorro100();
-    }
-
-    /**
-     * Create an instance of {@link RespuestaVidAhorroFlex }
-     * 
-     */
-    public RespuestaVidAhorroFlex createRespuestaVidAhorroFlex() {
-        return new RespuestaVidAhorroFlex();
-    }
-
-    /**
-     * Create an instance of {@link ObtenerProyeccionVidAhorro57Bis }
-     * 
-     */
-    public ObtenerProyeccionVidAhorro57Bis createObtenerProyeccionVidAhorro57Bis() {
-        return new ObtenerProyeccionVidAhorro57Bis();
+    public RespuestaFlexInvGold createRespuestaFlexInvGold() {
+        return new RespuestaFlexInvGold();
     }
 
     /**
@@ -201,35 +147,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DatosSimulacionVidAhorro57Bis }
+     * Create an instance of {@link RespuestaVidAhorro57Bis }
      * 
      */
-    public DatosSimulacionVidAhorro57Bis createDatosSimulacionVidAhorro57Bis() {
-        return new DatosSimulacionVidAhorro57Bis();
+    public RespuestaVidAhorro57Bis createRespuestaVidAhorro57Bis() {
+        return new RespuestaVidAhorro57Bis();
     }
 
     /**
-     * Create an instance of {@link RespuestaFlexInvGold }
+     * Create an instance of {@link ResultadoProyeccionVidAhorro57Bis }
      * 
      */
-    public RespuestaFlexInvGold createRespuestaFlexInvGold() {
-        return new RespuestaFlexInvGold();
+    public ResultadoProyeccionVidAhorro57Bis createResultadoProyeccionVidAhorro57Bis() {
+        return new ResultadoProyeccionVidAhorro57Bis();
     }
 
     /**
-     * Create an instance of {@link TransaccionVidAhorroFlex }
+     * Create an instance of {@link ResultadoProyeccionVidAhorroFlex }
      * 
      */
-    public TransaccionVidAhorroFlex createTransaccionVidAhorroFlex() {
-        return new TransaccionVidAhorroFlex();
-    }
-
-    /**
-     * Create an instance of {@link ObtenerProyeccionVidAhorro100Response }
-     * 
-     */
-    public ObtenerProyeccionVidAhorro100Response createObtenerProyeccionVidAhorro100Response() {
-        return new ObtenerProyeccionVidAhorro100Response();
+    public ResultadoProyeccionVidAhorroFlex createResultadoProyeccionVidAhorroFlex() {
+        return new ResultadoProyeccionVidAhorroFlex();
     }
 
     /**
@@ -241,6 +179,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DatosSimulacionFlexInvGold }
+     * 
+     */
+    public DatosSimulacionFlexInvGold createDatosSimulacionFlexInvGold() {
+        return new DatosSimulacionFlexInvGold();
+    }
+
+    /**
      * Create an instance of {@link RespuestaVidAhorro100 }
      * 
      */
@@ -249,11 +195,67 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ObtenerProyeccionFlexInvGold }
+     * Create an instance of {@link TransaccionAhorroInternet }
      * 
      */
-    public ObtenerProyeccionFlexInvGold createObtenerProyeccionFlexInvGold() {
-        return new ObtenerProyeccionFlexInvGold();
+    public TransaccionAhorroInternet createTransaccionAhorroInternet() {
+        return new TransaccionAhorroInternet();
+    }
+
+    /**
+     * Create an instance of {@link Inyeccion }
+     * 
+     */
+    public Inyeccion createInyeccion() {
+        return new Inyeccion();
+    }
+
+    /**
+     * Create an instance of {@link ResultadoProyeccionAhorroInternet }
+     * 
+     */
+    public ResultadoProyeccionAhorroInternet createResultadoProyeccionAhorroInternet() {
+        return new ResultadoProyeccionAhorroInternet();
+    }
+
+    /**
+     * Create an instance of {@link Cobertura }
+     * 
+     */
+    public Cobertura createCobertura() {
+        return new Cobertura();
+    }
+
+    /**
+     * Create an instance of {@link Recargo }
+     * 
+     */
+    public Recargo createRecargo() {
+        return new Recargo();
+    }
+
+    /**
+     * Create an instance of {@link TransaccionFlexInvGold }
+     * 
+     */
+    public TransaccionFlexInvGold createTransaccionFlexInvGold() {
+        return new TransaccionFlexInvGold();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerProyeccionVidAhorro57Bis }
+     * 
+     */
+    public ObtenerProyeccionVidAhorro57Bis createObtenerProyeccionVidAhorro57Bis() {
+        return new ObtenerProyeccionVidAhorro57Bis();
+    }
+
+    /**
+     * Create an instance of {@link DatosSimulacionVidAhorro57Bis }
+     * 
+     */
+    public DatosSimulacionVidAhorro57Bis createDatosSimulacionVidAhorro57Bis() {
+        return new DatosSimulacionVidAhorro57Bis();
     }
 
     /**
@@ -265,11 +267,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DatosSimulacionFlexInvGold }
+     * Create an instance of {@link DatosSimulacionVidAhorro100 }
      * 
      */
-    public DatosSimulacionFlexInvGold createDatosSimulacionFlexInvGold() {
-        return new DatosSimulacionFlexInvGold();
+    public DatosSimulacionVidAhorro100 createDatosSimulacionVidAhorro100() {
+        return new DatosSimulacionVidAhorro100();
+    }
+
+    /**
+     * Create an instance of {@link Familiar }
+     * 
+     */
+    public Familiar createFamiliar() {
+        return new Familiar();
+    }
+
+    /**
+     * Create an instance of {@link RespuestaVidAhorroFlex }
+     * 
+     */
+    public RespuestaVidAhorroFlex createRespuestaVidAhorroFlex() {
+        return new RespuestaVidAhorroFlex();
+    }
+
+    /**
+     * Create an instance of {@link ResultadoProyeccionVidAhorro100 }
+     * 
+     */
+    public ResultadoProyeccionVidAhorro100 createResultadoProyeccionVidAhorro100() {
+        return new ResultadoProyeccionVidAhorro100();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerProyeccionVidAhorroFlex }
+     * 
+     */
+    public ObtenerProyeccionVidAhorroFlex createObtenerProyeccionVidAhorroFlex() {
+        return new ObtenerProyeccionVidAhorroFlex();
+    }
+
+    /**
+     * Create an instance of {@link TransaccionVidAhorro100 }
+     * 
+     */
+    public TransaccionVidAhorro100 createTransaccionVidAhorro100() {
+        return new TransaccionVidAhorro100();
     }
 
     /**
@@ -281,11 +323,20 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Recargo }
+     * Create an instance of {@link Rescate }
      * 
      */
-    public Recargo createRecargo() {
-        return new Recargo();
+    public Rescate createRescate() {
+        return new Rescate();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerProyeccionAhorroInternetResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.proyeccion.cnsv.cl/", name = "obtenerProyeccionAhorroInternetResponse")
+    public JAXBElement<ObtenerProyeccionAhorroInternetResponse> createObtenerProyeccionAhorroInternetResponse(ObtenerProyeccionAhorroInternetResponse value) {
+        return new JAXBElement<ObtenerProyeccionAhorroInternetResponse>(_ObtenerProyeccionAhorroInternetResponse_QNAME, ObtenerProyeccionAhorroInternetResponse.class, null, value);
     }
 
     /**
@@ -331,6 +382,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.proyeccion.cnsv.cl/", name = "obtenerProyeccionVidAhorroFlex")
     public JAXBElement<ObtenerProyeccionVidAhorroFlex> createObtenerProyeccionVidAhorroFlex(ObtenerProyeccionVidAhorroFlex value) {
         return new JAXBElement<ObtenerProyeccionVidAhorroFlex>(_ObtenerProyeccionVidAhorroFlex_QNAME, ObtenerProyeccionVidAhorroFlex.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerProyeccionAhorroInternet }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.proyeccion.cnsv.cl/", name = "obtenerProyeccionAhorroInternet")
+    public JAXBElement<ObtenerProyeccionAhorroInternet> createObtenerProyeccionAhorroInternet(ObtenerProyeccionAhorroInternet value) {
+        return new JAXBElement<ObtenerProyeccionAhorroInternet>(_ObtenerProyeccionAhorroInternet_QNAME, ObtenerProyeccionAhorroInternet.class, null, value);
     }
 
     /**

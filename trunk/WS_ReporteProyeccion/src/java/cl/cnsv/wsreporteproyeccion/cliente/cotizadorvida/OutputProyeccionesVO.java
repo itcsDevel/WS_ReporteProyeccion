@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -27,7 +28,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
- *                   &lt;element name="cobertura" type="{http://cnsv.cl/}coberturaVO" maxOccurs="unbounded" minOccurs="0"/>
+ *                   &lt;element ref="{http://cnsv.cl/}cobertura" maxOccurs="unbounded" minOccurs="0"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
@@ -188,7 +189,7 @@ public class OutputProyeccionesVO {
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
-     *         &lt;element name="cobertura" type="{http://cnsv.cl/}coberturaVO" maxOccurs="unbounded" minOccurs="0"/>
+     *         &lt;element ref="{http://cnsv.cl/}cobertura" maxOccurs="unbounded" minOccurs="0"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
      *   &lt;/complexContent>
@@ -203,6 +204,7 @@ public class OutputProyeccionesVO {
     })
     public static class Coberturas {
 
+        @XmlElement(namespace = "http://cnsv.cl/")
         protected List<CoberturaVO> cobertura;
 
         /**

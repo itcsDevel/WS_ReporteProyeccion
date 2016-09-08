@@ -4,6 +4,8 @@
 
 package cl.cnsv.wsreporteproyeccion.vo;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /** 
  * Clase que registra el numero de cotizacion como entrada para el servicio 
  * de obtener la cotizacion internet.
@@ -11,6 +13,7 @@ package cl.cnsv.wsreporteproyeccion.vo;
  * fecha: 30-08-2016 
  * @author exitcs6 
  */
+@XmlRootElement
 public class InputObtenerCotizacionInternetVO {
 
     private String numeroCotizacion;
